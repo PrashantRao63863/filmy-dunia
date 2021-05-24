@@ -12,10 +12,16 @@ import Admin from './components/admin';
 import ManageUser from './components/admin/manageuser';
 import UserDashboard from './components/user';
 import AppComponent from './components/authentication';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 
 
 function App() {
+
+  const stripe = loadStripe(
+    "pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1"
+  );
 
   const theme = createMuiTheme({
     palette: {
@@ -37,6 +43,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <UserProvider>
+
+          <Elements stripe={stripe}>
+            <Route path="/user">
+              <UserDashboard />
+            </Route>
+          </Elements>
 
           <Route exact path="/">
             <Redirect to="/admin" />
@@ -60,10 +72,6 @@ function App() {
 
           <Route path="/admin">
             <Admin />
-          </Route>
-
-          <Route path="/user">
-            <UserDashboard />
           </Route>
 
         </UserProvider>

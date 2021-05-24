@@ -2,7 +2,7 @@ import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/co
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import app_config from '../config';
 import clsx from "clsx";
 import { UserContext } from "../providers/userContext";
@@ -14,7 +14,7 @@ const Header = props => {
     const handleDrawerOpen = props.handleDrawerOpen;
 
     const userService = useContext(UserContext);
-
+    const history = useHistory();
 
     const useStyles = makeStyles((theme) => ({
         appBar: {
@@ -69,6 +69,13 @@ const Header = props => {
         }
     }
 
+    const handleLogout = e => {
+        sessionStorage.removeItem('user');
+        userService.setLoggedin(false);
+        userService.setCurrentUser(null);
+        history.push('/app/login');
+    }
+
     const renderLoggedIn = () => {
         let user = userService.currentUser;
         console.log(user);
@@ -78,6 +85,9 @@ const Header = props => {
                 <div>
                     <Link to="/admin/dashboard" className={classes.link}>
                         <Button color="inherit">Dashboard</Button>
+                    </Link>
+                    <Link to="/admin/dashboard" className={classes.link}>
+                        <Button color="inherit" onClick={handleLogout}>Logout</Button>
                     </Link>
                 </div>
             )
