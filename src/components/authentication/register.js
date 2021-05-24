@@ -1,15 +1,23 @@
 import { Formik } from "formik";
+import React from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/userContext";
 
 const Register = () => {
 
     const userService = useContext(UserContext);
+    const [avatar, setAvatar] = React.useState("");
+    const [imgpath, setImgPath] = React.useState("");
+
 
     const registerForm = {
-        username: '',
+        fullname: '',
         email: '',
-        password: ''
+        password: '',
+        age: '',
+        created: new Date(),
+        isadmin: false
     };
 
     const onFormSubmit = (value, { setSubmitting }) => {
@@ -20,6 +28,36 @@ const Register = () => {
 
             .then(res => console.log(res));
     }
+
+
+    const showAvatar = () => {
+        if (imgpath) {
+            return (
+                <img src={imgpath} className="img-fluid" />
+            )
+        }
+    }
+
+    const uploadImage = (event) => {
+        const data = new FormData();
+        data.append('image', event.target.files[0]);
+        setAvatar(event.target.files[0].name);
+        userService.uploadImage(data)
+            .then(res => console.log(res));
+
+        var mimeType = event.target.files[0].type;
+        if (mimeType.match(/image\/*/) == null) {
+            // erroMsg = 'Only images are supported.';
+            return;
+        }
+
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = (_event) => {
+            setImgPath(reader.result);
+        };
+    }
+
 
     return (
         <div className="col-md-6 mx-auto">
@@ -39,22 +77,31 @@ const Register = () => {
 
                                 <h3 className="text-center">Register Here</h3>
 
-                                <label className="mt-5">Name</label>
-                                <input type="text" className="form-control" id="username" onChange={handleChange} value={values.username} />
+                                <div className="row">
+                                    <div className="col-md mt-5">
+                                        <label className="mt-5">Full Name</label>
+                                        <input type="text" className="form-control" id="firstname" onChange={handleChange} value={values.firstname} />
+                                    </div>
 
-                                <label className="mt-4">Email</label>
-                                <input type="text" className="form-control" id="email" onChange={handleChange} value={values.email} />
-
-                                <label className="mt-4">Password</label>
-                                <input type="text" className="form-control" id="password" onChange={handleChange} value={values.password} />
-
-
-
-                                <div className="text-center">
-                                    <button className="btn btn-warning mt-5 w-100" disabled={isSubmitting}>Submit</button>
                                 </div>
 
-                                <p className="mt-3 text-center">Already Registered? <a href="loginpage.html">Login Here</a></p>
+                                <label className="mt-4">Age</label>
+                                <input type="number" className="form-control" id="age" onChange={handleChange} value={values.age} />
+
+                                <label className="mt-4">Email</label>
+                                <input type="email" className="form-control" id="email" onChange={handleChange} value={values.email} />
+
+                                <label className="mt-4">Password</label>
+                                <input type="password" className="form-control" id="password" onChange={handleChange} value={values.password} />
+
+                                {showAvatar()}
+                                <input className="form-control" type="file" onChange={uploadImage} />
+
+                                <div className="text-center">
+                                    <button className="btn btn-warning mt-5 w-100">Submit</button>
+                                </div>
+
+                                <p className="mt-3 text-center">Already Registered? <Link to="/app/login">Login Here</Link></p>
 
                             </form>
                         )}

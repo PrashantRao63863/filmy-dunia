@@ -11,6 +11,7 @@ import { blue, green, purple } from '@material-ui/core/colors';
 import Admin from './components/admin';
 import ManageUser from './components/admin/manageuser';
 import UserDashboard from './components/user';
+import AppComponent from './components/authentication';
 
 
 
@@ -43,6 +44,10 @@ function App() {
 
           <Route path="/register">
             <Register />
+          </Route>
+
+          <Route path="/app">
+            <AppComponent />
           </Route>
 
           <Route path="/login">

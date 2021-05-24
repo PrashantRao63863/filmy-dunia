@@ -38,6 +38,16 @@ export const UserProvider = props => {
             .then(response => response.json());
     }
 
+    const uploadImage = data => {
+        const requestOptions = {
+            method: 'POST',
+            body: data
+        }
+
+        return fetch(app_config.api_url + '/util/addimg', requestOptions)
+            .then(response => response.json());
+    }
+
 
     const Logout = () => {
         sessionStorage.removeItem('user');
