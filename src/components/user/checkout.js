@@ -1,21 +1,47 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import app_config from "../../config";
+import { UserContext } from "../../providers/userContext";
 
 const Checkout = props => {
 
     const [isPaymentLoading, setPaymentLoading] = useState(false);
+    const url = app_config.api_url;
 
     const stripe = useStripe();
     const elements = useElements();
 
+    const userService = useContext(UserContext);
+
+    const getIntent = () => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ amount: 2300 * 100 })
+        }
+        return fetch(url + '/create-payment-intent', requestOptions)
+            .then(response => response.json())
+    }
+
     const payMoney = async (e) => {
-        const clientSecret = "sk_test_4ypbMh4aR9gRNnUkQCwgOyCT00rSoAbXzZ";
         e.preventDefault();
-        const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+        getIntent()
+            .then(res => {
+                console.log(res);
+                let clientSecret = res.client_secret;
+
+                completePayment(clientSecret);
+            })
+
+    };
+
+
+    const completePayment = async (key) => {
+        const paymentResult = await stripe.confirmCardPayment(key, {
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
-                    name: "Leon Kennedy",
+                    name: userService.currentUser.fullname,
                 },
             },
         });
@@ -29,7 +55,8 @@ const Checkout = props => {
                 console.log(paymentResult);
             }
         }
-    };
+
+    }
 
     return (
         <div>
