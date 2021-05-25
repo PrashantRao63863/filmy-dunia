@@ -13,6 +13,15 @@ app.use('/user', userRouter);
 
 const stripe = require('stripe')(stripe_sk);
 
+app.post("/create-payment-intent", async (req, res) => {
+    const data = req.body;
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: data.amount,
+        currency: 'inr'
+    });
+    res.status(200).json(paymentIntent);
+});
+
 app.get('/home', (req, res) => {
     res.send("Welcome Home");
 })
