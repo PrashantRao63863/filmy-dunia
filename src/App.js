@@ -13,6 +13,7 @@ import { GuardedRoute, GuardProvider } from 'react-router-guards';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import AdminDashboard from './components/admin/dashboard';
+import HomeComponent from './components/home';
 import Login from './components/authentication/login';
 
 
@@ -66,6 +67,7 @@ function App() {
           <GuardProvider guards={[requireLogin]}>
             <GuardedRoute path="/app/login" component={Login} />
             <GuardedRoute path="/admin" component={AdminDashboard} />
+            <GuardedRoute path="/home" component={HomeComponent} />
             <Elements stripe={stripe}>
               <GuardedRoute path="/user" component={UserDashboard} meta={{ auth: true }} />
             </Elements>
