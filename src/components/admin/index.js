@@ -4,7 +4,7 @@ import Header from '../header';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PeopleIcon from '@material-ui/icons/People';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import { Route, BrowserRouter as Router, useRouteMatch, Switch, Link, Redirect } from 'react-router-dom';
+import { Route, useRouteMatch, Switch } from 'react-router-dom';
 import ManageUser from './manageuser';
 import AdminDashboard from './dashboard';
 import Profile from '../profile';

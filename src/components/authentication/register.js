@@ -1,14 +1,26 @@
+import { Button, Card, CardContent, makeStyles } from "@material-ui/core";
+import clsx from "clsx";
 import { Formik } from "formik";
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/userContext";
+import cssClasses from "../cssClasses";
+
+const useStyles = makeStyles(theme => ({
+    card: {
+        marginTop: '5rem'
+    }
+}))
 
 const Register = () => {
 
     const userService = useContext(UserContext);
     const [avatar, setAvatar] = React.useState("");
     const [imgpath, setImgPath] = React.useState("");
+
+    const globalStyles = cssClasses();
+    const styles = useStyles();
 
 
     const registerForm = {
@@ -61,8 +73,8 @@ const Register = () => {
 
     return (
         <div className="col-md-6 mx-auto">
-            <div className="card">
-                <div className="card-body">
+            <Card className={clsx(globalStyles.card, styles.card)}>
+                <CardContent>
                     <Formik
                         initialValues={registerForm}
                         onSubmit={onFormSubmit}
@@ -95,10 +107,11 @@ const Register = () => {
                                 <input type="password" className="form-control" id="password" onChange={handleChange} value={values.password} />
 
                                 {showAvatar()}
-                                <input className="form-control" type="file" onChange={uploadImage} />
+                                <input className="form-control mt-5" type="file" onChange={uploadImage} />
 
                                 <div className="text-center">
-                                    <button className="btn btn-warning mt-5 w-100">Submit</button>
+                                    <Button variant="contained" color="primary" className="mt-5 w-100">Submit</Button>
+
                                 </div>
 
                                 <p className="mt-3 text-center">Already Registered? <Link to="/app/login">Login Here</Link></p>
@@ -106,8 +119,10 @@ const Register = () => {
                             </form>
                         )}
                     </Formik>
-                </div>
-            </div>
+
+                </CardContent>
+
+            </Card>
         </div>
     )
 

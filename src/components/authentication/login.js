@@ -1,12 +1,25 @@
+import { Button, Card, CardContent, makeStyles } from "@material-ui/core";
+import clsx from "clsx";
 import { Formik } from "formik";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import { UserContext } from "../../providers/userContext";
+import cssClasses from "../cssClasses";
+
+const useStyles = makeStyles(theme => ({
+    card: {
+        marginTop: '10rem'
+    }
+}))
 
 const Login = () => {
 
     const userService = useContext(UserContext);
+    const globalStyles = cssClasses();
+    const styles = useStyles();
+
+    const history = useHistory();
 
     const loginForm = {
         email: '',
@@ -30,11 +43,12 @@ const Login = () => {
                             sessionStorage.setItem('user', JSON.stringify(userdata));
                             userService.setCurrentUser(userdata);
 
-                            // if (userdata['isadmin']) {
-                            //   this.router.navigate(['/admin']);
-                            // } else {
-                            //   this.router.navigate(['/user']);
-                            // }
+                            if (userdata['isadmin']) {
+                                history.push('/admin');
+                            } else {
+                                history.push('/user');
+
+                            }
                         });
                     } else {
                         Swal.fire({
@@ -55,9 +69,9 @@ const Login = () => {
     }
 
     return (
-        <div className="col-md-6 mx-auto">
-            <div className="card">
-                <div className="card-body">
+        <div className="col-md-3 mx-auto">
+            <Card className={clsx(globalStyles.card, styles.card)}>
+                <CardContent>
                     <Formik
                         initialValues={loginForm}
                         onSubmit={onFormSubmit}
@@ -81,16 +95,17 @@ const Login = () => {
 
 
                                 <div className="text-center">
-                                    <button className="btn btn-warning mt-5 w-100" disabled={isSubmitting}>Submit</button>
+                                    <Button type="submit" variant="contained" color="primary" className="mt-5 w-100">Submit</Button>
                                 </div>
 
-                                <p className="mt-3 text-center">Register Instead? <Link to="/login">Register Here</Link></p>
+                                <p className="mt-3 text-center">Register Instead? <Link to="/app/register">Register Here</Link></p>
 
                             </form>
                         )}
                     </Formik>
-                </div>
-            </div>
+
+                </CardContent>
+            </Card>
         </div>
     )
 

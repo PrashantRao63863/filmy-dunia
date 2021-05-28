@@ -41,7 +41,7 @@ const EquipmentDetails = () => {
                 setEquipmentData(data);
                 setLoading(false);
             })
-    }, [])
+    }, [equipmentService, id])
 
     const handleClose = () => {
         setLoading(false);
