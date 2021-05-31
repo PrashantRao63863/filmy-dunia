@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HomeComponent = props => {
 
     return (
@@ -9,7 +11,7 @@ const HomeComponent = props => {
 
                     <nav id="navbar" className="navbar">
                         <ul>
-                            <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
+                            <li><Link className="nav-link scrollto active" to="/app/login">Login</Link></li>
                             <li><a className="nav-link scrollto" href="#about">About</a></li>
                             <li><a className="nav-link scrollto" href="#services">Services</a></li>
                             <li><a className="nav-link scrollto " href="#portfolio">Portfolio</a></li>

@@ -116,7 +116,7 @@ const Header = props => {
             <Toolbar>
                 {showMenuButton()}
                 <Typography variant="h6" className={classes.title}>
-                    {app_config.projectTitle}
+                    <Link to="/home">{app_config.projectTitle}</Link>
                 </Typography>
                 {
                     renderLoggedIn()

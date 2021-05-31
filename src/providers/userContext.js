@@ -32,6 +32,17 @@ export const UserProvider = props => {
             .then(response => response.json());
     }
 
+    const updateUser = (id, data) => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        }
+
+        return fetch(url + '/update/' + id, requestOptions)
+            .then(response => response.json());
+    }
+
     const getUserByEmail = email => {
 
         return fetch(url + '/getbyemail/' + email)
@@ -58,6 +69,8 @@ export const UserProvider = props => {
     const toProvide = {
         loggedin,
         currentUser,
+        uploadImage,
+        updateUser,
 
         setLoggedin,
         setCurrentUser,

@@ -3,7 +3,8 @@ import clsx from "clsx";
 import { Formik } from "formik";
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 import { UserContext } from "../../providers/userContext";
 import cssClasses from "../cssClasses";
 
@@ -22,6 +23,8 @@ const Register = () => {
     const globalStyles = cssClasses();
     const styles = useStyles();
 
+    const history = useHistory();
+
 
     const registerForm = {
         fullname: '',
@@ -29,16 +32,26 @@ const Register = () => {
         password: '',
         age: '',
         created: new Date(),
-        isadmin: false
+        isadmin: true
     };
 
     const onFormSubmit = (value, { setSubmitting }) => {
         console.log(value);
         setSubmitting = true;
-
+        value['avatar'] = avatar;
         userService.addUser(value)
 
-            .then(res => console.log(res));
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Signup Success',
+                    text: 'You have registered sucessfully'
+                })
+                    .then(d => {
+                        history.push('/app/login');
+                    })
+            });
     }
 
 
@@ -92,7 +105,7 @@ const Register = () => {
                                 <div className="row">
                                     <div className="col-md mt-5">
                                         <label className="mt-5">Full Name</label>
-                                        <input type="text" className="form-control" id="firstname" onChange={handleChange} value={values.firstname} />
+                                        <input type="text" className="form-control" id="fullname" onChange={handleChange} value={values.fullname} />
                                     </div>
 
                                 </div>
@@ -110,7 +123,7 @@ const Register = () => {
                                 <input className="form-control mt-5" type="file" onChange={uploadImage} />
 
                                 <div className="text-center">
-                                    <Button variant="contained" color="primary" className="mt-5 w-100">Submit</Button>
+                                    <Button type="submit" variant="contained" color="primary" className="mt-5 w-100">Submit</Button>
 
                                 </div>
 
