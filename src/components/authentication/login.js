@@ -97,7 +97,7 @@ const Login = () => {
                                 <div className="text-center">
                                     <Button type="submit" variant="contained" color="primary" className="mt-5 w-100">Submit</Button>
                                 </div>
-
+                                <Link to="/app/reset">Forgot Password</Link>
                                 <p className="mt-3 text-center">Register Instead? <Link to="/app/register">Register Here</Link></p>
 
                             </form>

@@ -9,12 +9,8 @@ import UserDashboard from './components/user';
 import AppComponent from './components/authentication';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { GuardedRoute, GuardProvider } from 'react-router-guards';
-import Swal from 'sweetalert2';
 import { useContext } from 'react';
-import AdminDashboard from './components/admin/dashboard';
 import HomeComponent from './components/home';
-import Login from './components/authentication/login';
 
 
 
@@ -64,16 +60,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <UserProvider>
         <Router>
-          <GuardProvider guards={[requireLogin]}>
-            <GuardedRoute path="/app/login" component={Login} />
-            <GuardedRoute path="/admin" component={AdminDashboard} />
-            <GuardedRoute path="/home" component={HomeComponent} />
-            <Elements stripe={stripe}>
-              <GuardedRoute path="/user" component={UserDashboard} meta={{ auth: true }} />
-            </Elements>
+          <Route path="/app" component={AppComponent}></Route>
+          <Route path="/admin" component={Admin}></Route>
+          <Route path="/home" component={HomeComponent}></Route>
+          <Elements stripe={stripe}>
+            <Route path="/user" component={UserDashboard}></Route>
+          </Elements>
 
-
-          </GuardProvider>
+          <Redirect exact path="" to="/app"></Redirect>
 
         </Router>
       </UserProvider>

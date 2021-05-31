@@ -1,6 +1,6 @@
 const app_config = {
     api_url: 'http://localhost:5000',
-    projectTitle: 'Major Project'
+    projectTitle: 'Filmy Dunia'
 }
 
 export default app_config;

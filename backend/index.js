@@ -5,11 +5,21 @@ const stripe_sk = require('./config').stripe_sk;
 const port = require('./config').port;
 
 const userRouter = require('./routers/userManager');
+const equipmentRouter = require('./routers/equipmentManager');
+const crewRouter = require('./routers/crewManager');
+const utilRouter = require('./routers/utils');
+const reviewRouter = require('./routers/reviewManager');
+
 const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
+
 app.use('/user', userRouter);
+app.use('/equipment', equipmentRouter);
+app.use('/util', utilRouter);
+app.use('/crew', crewRouter);
+app.use('/review', reviewRouter);
 
 const stripe = require('stripe')(stripe_sk);
 

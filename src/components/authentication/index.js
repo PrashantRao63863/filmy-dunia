@@ -6,6 +6,7 @@ import Login from './login';
 import Register from './register';
 import ListEquipments from './listEquipments';
 import EquipmentDetails from './equipmentDetails';
+import ForgotPassword from './forgotpassword';
 
 const drawerWidth = 240;
 
@@ -42,6 +43,7 @@ const AppComponent = () => {
                 </Route>
                 <Route path={`${path}/login`} component={Login} />
                 <Route path={`${path}/register`} component={Register} />
+                <Route path={`${path}/reset`} component={ForgotPassword} />
                 <Route path={`${path}/listequipments`} component={ListEquipments} />
                 <Route path={`${path}/equipmentdetails/:id`} component={EquipmentDetails} />
             </Switch>
