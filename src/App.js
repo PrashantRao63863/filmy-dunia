@@ -11,6 +11,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useContext } from 'react';
 import HomeComponent from './components/home';
+import { EquipmentProvider } from './providers/equipmentContext';
 
 
 
@@ -59,17 +60,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <UserProvider>
-        <Router>
-          <Route path="/app" component={AppComponent}></Route>
-          <Route path="/admin" component={Admin}></Route>
-          <Route path="/home" component={HomeComponent}></Route>
-          <Elements stripe={stripe}>
-            <Route path="/user" component={UserDashboard}></Route>
-          </Elements>
+        <EquipmentProvider>
+          <Router>
+            <Route path="/app" component={AppComponent}></Route>
+            <Route path="/admin" component={Admin}></Route>
+            <Route path="/home" component={HomeComponent}></Route>
+            <Elements stripe={stripe}>
+              <Route path="/user" component={UserDashboard}></Route>
+            </Elements>
 
-          <Redirect exact path="" to="/app"></Redirect>
+            <Redirect exact path="" to="/app"></Redirect>
 
-        </Router>
+          </Router>
+        </EquipmentProvider>
       </UserProvider>
     </ThemeProvider>
   );
