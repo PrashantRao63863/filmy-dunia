@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-const conn_url = require('./config').db_url;
+const config = require('./config');
+console.log(config);
 
-mongoose.connect(conn_url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.db_url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('databse successfully connected'))
     .catch(err => console.error(err));
 
