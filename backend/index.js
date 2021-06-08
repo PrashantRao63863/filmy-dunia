@@ -21,6 +21,8 @@ app.use('/util', utilRouter);
 app.use('/crew', crewRouter);
 app.use('/review', reviewRouter);
 
+app.use(express.static('./uploads/'))
+
 const stripe = require('stripe')(stripe_sk);
 
 app.post("/create-payment-intent", async (req, res) => {

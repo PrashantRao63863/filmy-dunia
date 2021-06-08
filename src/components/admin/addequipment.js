@@ -2,6 +2,7 @@ import { Card, CardContent, Checkbox, FormControlLabel } from "@material-ui/core
 import { Formik } from "formik";
 
 import React from "react";
+import app_config from "../../config";
 import { EquipmentContext } from "../../providers/equipmentContext";
 import cssClasses from "../cssClasses";
 
@@ -11,6 +12,7 @@ const AddEquipment = () => {
     const [avatar, setAvatar] = React.useState("");
     const [imgpath, setImgPath] = React.useState("");
     const baseStyles = cssClasses();
+    const categories = app_config.equipmentCategories;
 
     const equipmentForm = {
         name: '',
@@ -69,7 +71,7 @@ const AddEquipment = () => {
         <div className="col-md-10 mx-auto">
             <Card className={baseStyles.card}>
                 <CardContent>
-                   
+
                     <Formik
                         initialValues={equipmentForm}
                         onSubmit={onFormSubmit}
@@ -100,32 +102,38 @@ const AddEquipment = () => {
                                 </div>
 
 
-                                <div className="form-floating mb-3">
-                                    <input type="text" className="form-control" id="rentprice" onChange={handleChange} value={values.rentprice} placeholder=" " />
-                                    <label htmlFor="name">Rent Price</label>
-                                </div>
 
                                 <FormControlLabel
                                     control={<Checkbox checked={values.rentable} value={values.rentable} id="rentable" onChange={handleChange} />}
                                     label="Rentable"
                                 />
 
-                      
+                                {
+                                    values.rentable ? (
+                                        <div className="form-floating mb-3">
+                                            <input type="text" className="form-control" id="rentprice" onChange={handleChange} value={values.rentprice} placeholder=" " />
+                                            <label htmlFor="name">Rent Price</label>
+                                        </div>
+                                    ) : ''
+                                }
+
 
                                 <div className="form-floating mb-3">
                                     <input type="text" list="categories" className="form-control" id="category" onChange={handleChange} value={values.category} placeholder=" " />
                                     <label htmlFor="name">Category</label>
                                 </div>
                                 <datalist id="categories">
-                                    <option value="A" />
-                                    <option value="B" />
-                                    <option value="C" />
+                                    {
+                                        categories.map(category => {
+                                            return <option value={category} key={category} />
+                                        })
+                                    }
                                 </datalist>
 
-                               <div >
-                               {showAvatar()}
-                                 <input className="form-control" type="file" onChange={uploadImage} />
-                               </div>
+                                <div >
+                                    {showAvatar()}
+                                    <input className="form-control" type="file" onChange={uploadImage} />
+                                </div>
 
                                 <div className="row">
                                     <div className="col-md">

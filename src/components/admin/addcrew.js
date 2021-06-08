@@ -9,7 +9,7 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const AddStaff = () => {
+const AddCrew = () => {
 
     const crewService = React.useContext(CrewContext);
 
@@ -17,7 +17,7 @@ const AddStaff = () => {
     const [imgpath, setImgPath] = React.useState("");
     const [open, setOpen] = React.useState(false);
 
-    const staffForm = {
+    const crewForm = {
         name: '',
         avatar: '',
         designation: '',
@@ -36,7 +36,7 @@ const AddStaff = () => {
         const data = new FormData();
         data.append('image', event.target.files[0]);
         setAvatar(event.target.files[0].name);
-        staffService.uploadImage(data)
+        crewService.uploadImage(data)
             .then(res => console.log(res));
 
         var mimeType = event.target.files[0].type;

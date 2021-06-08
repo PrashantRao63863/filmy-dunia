@@ -32,7 +32,7 @@ const Register = () => {
         password: '',
         age: '',
         created: new Date(),
-        isadmin: false
+        isadmin: true
     };
 
     const onFormSubmit = (value, { setSubmitting }) => {

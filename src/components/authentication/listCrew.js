@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const ListEquipments = () => {
+const ListCrew = () => {
 
     const equipmentService = React.useContext(EquipmentContext);
     const [equipmentList, setEquipmentList] = React.useState([])
@@ -74,7 +74,9 @@ const ListEquipments = () => {
                                                     classes={textCardContentStyles}
                                                     overline={'March 20, 2019'}
                                                     heading={equipment.name}
-
+                                                    body={
+                                                        equipment.description
+                                                    }
                                                 />
                                                 <div className="row">
                                                     <div className="col">
@@ -102,4 +104,4 @@ const ListEquipments = () => {
     )
 }
 
-export default ListEquipments;
+export default ListCrew;

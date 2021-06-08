@@ -20,11 +20,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const EquipmentDetails = () => {
+const CrewDetails = () => {
 
     const classes = useStyles();
     const [equipmentData, setEquipmentData] = useState({});
-    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
     const equipmentService = useContext(EquipmentContext);
     const userService = useContext(UserContext);
     const [loading, setLoading] = useState(true);
@@ -61,30 +60,6 @@ const EquipmentDetails = () => {
             .then(res => {
                 console.log(res);
             })
-    }
-
-    const renderReviewForm = () => {
-        if (currentUser) {
-            return (
-                <Card>
-                    <CardContent>
-                        <Rating onChange={handleRate} value={rating}></Rating>
-                        <TextField
-                            className="w-100"
-                            label="Review Text"
-                            multiline
-                            rows={5}
-                            value={text}
-                            onChange={handleText}
-                            variant="filled"
-                        />
-
-                        <Button onClick={addRating}>Add Review</Button>
-                    </CardContent>
-                </Card>
-            )
-        }
-
     }
 
     const renderReviews = () => {
@@ -131,9 +106,22 @@ const EquipmentDetails = () => {
                     renderReviews()
                 }
 
-                {
-                    renderReviewForm()
-                }
+                <Card>
+                    <CardContent>
+                        <Rating onChange={handleRate} value={rating}></Rating>
+                        <TextField
+                            className="w-100"
+                            label="Review Text"
+                            multiline
+                            rows={5}
+                            value={text}
+                            onChange={handleText}
+                            variant="filled"
+                        />
+
+                        <Button onClick={addRating}>Add Review</Button>
+                    </CardContent>
+                </Card>
 
 
                 <Backdrop ref={wrapper} className={classes.backdrop} open={loading} onClick={handleClose}>
@@ -146,4 +134,4 @@ const EquipmentDetails = () => {
 }
 
 
-export default EquipmentDetails;
+export default CrewDetails;
