@@ -7,7 +7,7 @@ const HomeComponent = props => {
             <header id="header" className="fixed-top ">
                 <div className="container d-flex align-items-center justify-content-between">
 
-                    <h1 className="logo"><a href="index.html">Tempo</a></h1>
+                    <h1 className="logo"><a href="index.html">Filmy Upkaran</a></h1>
 
                     <nav id="navbar" className="navbar">
                         <ul>
