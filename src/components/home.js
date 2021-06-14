@@ -11,7 +11,10 @@ const HomeComponent = props => {
 
                     <nav id="navbar" className="navbar">
                         <ul>
-                            <li><Link className="nav-link scrollto active" to="/app/login">Login</Link></li>
+
+                            <li><Link className="nav-link scrollto active" to="/app/login">Login</Link></li>                            
+                            <li><Link className="nav-link scrollto active" to="/app/register">Register</Link></li>                            
+
                             <li><a className="nav-link scrollto" href="#about">About</a></li>
                             <li><a className="nav-link scrollto" href="#services">Services</a></li>
                             <li><a className="nav-link scrollto " href="#portfolio">Portfolio</a></li>
@@ -44,7 +47,7 @@ const HomeComponent = props => {
 
             <section id="hero">
                 <div className="hero-container">
-                    <h3>Welcome to <strong>Tempo</strong></h3>
+                    <h3>Welcome to <strong>Filmy Dunia</strong></h3>
                     <h1>We're Creative Agency</h1>
                     <h2>We are team of talented proffesionals we are here to help in showcasing your skills.</h2>
                     <a href="#about" className="btn-get-started scrollto">Get Started</a>
