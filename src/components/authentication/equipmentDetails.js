@@ -91,12 +91,12 @@ const EquipmentDetails = () => {
 
     const handleOrder = () => {
         sessionStorage.setItem('order-item', JSON.stringify(equipmentData));
-        history.push('/app/checkout');
+        history.push('/user/checkout');
     }
 
     const handleRent = () => {
         sessionStorage.setItem('order-item', JSON.stringify(equipmentData));
-        history.push('/app/rent');
+        history.push('/user/rent');
     }
 
     const renderReviews = () => {

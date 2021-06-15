@@ -13,6 +13,7 @@ import { useContext } from 'react';
 import HomeComponent from './components/home';
 import { EquipmentProvider } from './providers/equipmentContext';
 import { CrewProvider } from './providers/crewContext';
+import { OrderProvider } from './providers/orderContext';
 
 
 
@@ -63,19 +64,21 @@ function App() {
       <UserProvider>
         <CrewProvider>
           <EquipmentProvider>
-            <Router>
-              <Switch>
-                <Redirect exact path="/" to="/home"></Redirect>
-                <Route path="/app" component={AppComponent}></Route>
-                <Route path="/admin" component={Admin}></Route>
-                <Route path="/home" component={HomeComponent}></Route>
-                <Elements stripe={stripe}>
-                  <Route path="/user" component={UserDashboard}></Route>
-                </Elements>
+            <OrderProvider>
+              <Router>
+                <Switch>
+                  <Redirect exact path="/" to="/home"></Redirect>
+                  <Route path="/app" component={AppComponent}></Route>
+                  <Route path="/admin" component={Admin}></Route>
+                  <Route path="/home" component={HomeComponent}></Route>
+                  <Elements stripe={stripe}>
+                    <Route path="/user" component={UserDashboard}></Route>
+                  </Elements>
 
-              </Switch>
+                </Switch>
 
-            </Router>
+              </Router>
+            </OrderProvider>
           </EquipmentProvider>
         </CrewProvider>
       </UserProvider>

@@ -9,6 +9,7 @@ const equipmentRouter = require('./routers/equipmentManager');
 const crewRouter = require('./routers/crewManager');
 const utilRouter = require('./routers/utils');
 const reviewRouter = require('./routers/reviewManager');
+const orderRouter = require('./routers/orderManager');
 
 const cors = require('cors');
 
@@ -20,6 +21,7 @@ app.use('/equipment', equipmentRouter);
 app.use('/util', utilRouter);
 app.use('/crew', crewRouter);
 app.use('/review', reviewRouter);
+app.use('/order', orderRouter);
 
 app.use(express.static('./uploads/'))
 

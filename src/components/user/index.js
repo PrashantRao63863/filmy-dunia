@@ -10,6 +10,12 @@ import { makeStyles } from '@material-ui/core';
 import Swal from 'sweetalert2';
 import { useHistory } from 'react-router-dom';
 import RentCrew from './rentCrew';
+import ManageUserOrders from './manageUserOrders';
+import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
+import BubbleChartRoundedIcon from '@material-ui/icons/BubbleChartRounded';
+import AttachMoneySharpIcon from '@material-ui/icons/AttachMoneySharp';
+import PersonSharpIcon from '@material-ui/icons/PersonSharp';
+
 
 const drawerWidth = 240;
 
@@ -71,14 +77,29 @@ const UserDashboard = () => {
     const drawerOptions = [
         {
             name: "Profile",
-            icon: <AccountBoxIcon />,
+            icon: <PersonSharpIcon />,
             link: `${url}/profile`
-        }
+        },
+        {
+            name: "Manage Orders",
+            icon: <AddShoppingCartRoundedIcon />,
+            link: `${url}/manageorder`
+        },
+        {
+            name: "Manage Services",
+            icon: <BubbleChartRoundedIcon />,
+            link: `${url}/services`
+        },
+        {
+            name: "Current Rents",
+            icon: <AttachMoneySharpIcon />,
+            link: `${url}/rents`
+        },
     ]
 
     return (
         <div>
-            <Header open={open} setOpen={setOpen} drawerWidth={drawerWidth} handleDrawerOpen={handleDrawerOpen} />
+            <Header open={open} setOpen={setOpen} drawerWidth={drawerWidth} handleDrawerOpen={handleDrawerOpen} drawer={true} />
             <DrawerComponent open={open} setOpen={setOpen} drawerWidth={drawerWidth} handleDrawerClose={handleDrawerClose} drawerOptions={drawerOptions} />
 
             <div className={clsx(classes.content, {
@@ -94,6 +115,9 @@ const UserDashboard = () => {
                     </Route>
                     <Route path={`${path}/rentcrew`}>
                         <RentCrew />
+                    </Route>
+                    <Route path={`${path}/manageorder`}>
+                        <ManageUserOrders />
                     </Route>
                 </Switch>
             </div>
