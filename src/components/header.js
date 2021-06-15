@@ -95,6 +95,9 @@ const Header = props => {
         } else {
             return (
                 <div>
+                <Link to="/home" className={classes.link}>
+                        <Button color="inherit">Home</Button>
+                    </Link>
                     <Link to="/app/login" className={classes.link}>
                         <Button color="inherit">Login</Button>
                     </Link>

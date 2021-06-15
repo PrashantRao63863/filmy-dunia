@@ -1,4 +1,5 @@
-import { Card, CardContent, Checkbox, FormControlLabel } from "@material-ui/core";
+import { Card, CardContent, Checkbox, Fade, FormControlLabel, Snackbar } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import { Formik } from "formik";
 
 import React from "react";
@@ -12,18 +13,20 @@ const AddEquipment = () => {
     const [avatar, setAvatar] = React.useState("");
     const [imgpath, setImgPath] = React.useState("");
     const baseStyles = cssClasses();
+    const [open, setOpen] = React.useState(false);
     const categories = app_config.equipmentCategories;
 
     const equipmentForm = {
         name: '',
         description: '',
         features: '',
-        price: '',
-        rentprice: '',
+        price: 0,
+        rentPrice: 0,
         rentable: false,
         category: '',
         avatar: '',
-        created: new Date()
+        created: new Date(),
+        reviews: Array
     };
 
 
@@ -34,7 +37,10 @@ const AddEquipment = () => {
 
         equipmentService.addEquipment(value)
 
-            .then(res => console.log(res));
+            .then(res => {
+                console.log(res)
+                setOpen(true);
+            });
     }
 
     const showAvatar = () => {
@@ -65,10 +71,27 @@ const AddEquipment = () => {
         };
     }
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
 
 
     return (
         <div className="col-md-10 mx-auto">
+            <Snackbar
+                onClose={handleClose}
+                autoHideDuration={2000}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                open={open}
+                TransitionComponent={Fade}
+            >
+
+                <Alert onClose={handleClose} severity="success">Equipment Successfully Added</Alert>
+            </Snackbar>
             <Card className={baseStyles.card}>
                 <CardContent>
 
@@ -95,7 +118,7 @@ const AddEquipment = () => {
                                     </div>
                                     <div className="col-md mt-5">
                                         <div className="form-floating mb-3">
-                                            <input type="text" className="form-control" id="price" onChange={handleChange} value={values.price} placeholder=" " />
+                                            <input type="number" className="form-control" id="price" onChange={handleChange} value={values.price} placeholder=" " />
                                             <label htmlFor="name">Price</label>
                                         </div>
                                     </div>
@@ -103,12 +126,14 @@ const AddEquipment = () => {
 
 
 
+                             
+
                                 <FormControlLabel
                                     control={<Checkbox checked={values.rentable} value={values.rentable} id="rentable" onChange={handleChange} />}
                                     label="Rentable"
                                 />
 
-                                {
+{
                                     values.rentable ? (
                                         <div className="form-floating mb-3">
                                             <input type="text" className="form-control" id="rentprice" onChange={handleChange} value={values.rentprice} placeholder=" " />
@@ -128,6 +153,14 @@ const AddEquipment = () => {
                                             return <option value={category} key={category} />
                                         })
                                     }
+
+                                    <option value="Health Monitoring" />
+                                    <option value="Life Support Equipment" />
+                                    <option value="Diagnostic Equipment" />
+                
+                                    <option value="Durable Medical Equipment (DME)" />
+                                    
+
                                 </datalist>
 
                                 <div >
@@ -152,7 +185,7 @@ const AddEquipment = () => {
 
 
                                 <div className="text-center">
-                                    <button className="btn btn-warning mt-5 w-100">Submit</button>
+                                    <button className="btn btn-primary mt-5 w-100">Submit</button>
                                 </div>
 
 

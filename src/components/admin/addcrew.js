@@ -88,8 +88,8 @@ const AddCrew = () => {
             </Snackbar>
             <div className="card">
                 <div className="card-body">
-                    <h3 className="text-center">Add staff Here</h3>
-                    <div className="row mt-5" >
+                    <h3 className="text-center">Add Crew Here</h3>
+                    <div className="row mt-5" style={{ height: '10rem' }}>
                         <div className="col-md-4 mx-auto">
                             {showAvatar()}
                         </div>
