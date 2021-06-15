@@ -1,14 +1,14 @@
 import { Button, Card, CardContent, CardMedia, List, ListItem, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
-import { EquipmentContext } from "../../providers/equipmentContext";
 import ChevronRightRounded from '@material-ui/icons/ChevronRightRounded';
 import TextInfoContent from '@mui-treasury/components/content/textInfo';
 import { useFourThreeCardMediaStyles } from '@mui-treasury/styles/cardMedia/fourThree';
 import { useN01TextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/n01';
 import { useBouncyShadowStyles } from '@mui-treasury/styles/shadow/bouncy';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import app_config from "../../config";
+import { CrewContext } from "../../providers/crewContext";
 
 
 const useStyles = makeStyles(() => ({
@@ -31,65 +31,65 @@ const useStyles = makeStyles(() => ({
 
 const ListCrew = () => {
 
-    const equipmentService = React.useContext(EquipmentContext);
-    const [equipmentList, setEquipmentList] = React.useState([])
+    const crewService = React.useContext(CrewContext);
+    const [crewList, setCrewList] = React.useState([])
 
     const styles = useStyles();
     const mediaStyles = useFourThreeCardMediaStyles();
     const textCardContentStyles = useN01TextInfoContentStyles();
     const shadowStyles = useBouncyShadowStyles();
 
+    const history = useHistory();
+
     const url = app_config.api_url + '/';
 
     React.useEffect(() => {
 
-        equipmentService.getAll()
+        crewService.getAll()
             .then(data => {
-                setEquipmentList(data)
+                setCrewList(data)
                 console.log(data);
             });
 
     }, [])
 
+    const handleHire = (crew) => {
+        sessionStorage.setItem('crew', JSON.stringify(crew));
+        history.push('/user/');
+    }
+
     return (
         <div>
-            <h1 className="text-center">List Equipments</h1>
+            <h1 className="text-center">List Crews</h1>
             <div className="col-md-10 mx-auto">
                 <Card>
                     <CardContent>
                         <div className="row">
                             {
-                                equipmentList.map(equipment => (
+                                crewList.map(crew => (
 
-                                    <div className="col-md-3 mt-5" key={equipment._id}>
+                                    <div className="col-md-3 mt-5" key={crew._id}>
                                         <Card className={clsx(styles.root, shadowStyles.root)}>
                                             <CardMedia
                                                 classes={mediaStyles}
                                                 image={
-                                                    url + equipment.avatar
+                                                    url + crew.avatar
                                                 }
                                             />
                                             <CardContent className={styles.content}>
                                                 <TextInfoContent
                                                     classes={textCardContentStyles}
                                                     overline={'March 20, 2019'}
-                                                    heading={equipment.name}
+                                                    heading={crew.name}
                                                     body={
-                                                        equipment.description
+                                                        crew.description
                                                     }
                                                 />
-                                                <div className="row">
-                                                    <div className="col">
-                                                        <Button color={'primary'} fullWidth className={styles.cta}>
-                                                            <Link to={`/app/equipmentdetails/${equipment._id}`}>Buy Now</Link> <ChevronRightRounded />
+                                                <div className="col">
+                                                        <Button color={'primary'} fullWidth className={styles.cta} onClick={e => handleHire(crew)}>
+                                                            Hire Now <ChevronRightRounded />
                                                         </Button>
                                                     </div>
-                                                    <div className="col">
-                                                        <Button color={'primary'} fullWidth className={styles.cta}>
-                                                            Rent Now <ChevronRightRounded />
-                                                        </Button>
-                                                    </div>
-                                                </div>
                                             </CardContent>
                                         </Card>
                                     </div>

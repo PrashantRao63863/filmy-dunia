@@ -6,12 +6,22 @@ import cssClasses from '../cssClasses';
 import update from 'immutability-helper';
 import { Bar } from 'react-chartjs-2';
 import { EquipmentContext } from "../../providers/equipmentContext";
+import { OrderContext } from "../../providers/orderContext";
+
 
 
 
 const customStyles = makeStyles(theme => ({
     card: {
         marginTop: '2rem'
+    },
+    infoTitle: {
+        fontSize: '2em',
+        fontWeight: 'bold'
+    },
+    info: {
+        fontSize: '4em',
+        fontWeight: 'bold'
     }
 }))
 
@@ -22,12 +32,19 @@ const AdminDashboard = props => {
 
     const [usersList, setUsersList] = useState([]);
     const [equipmentList, setEquipmentList] = useState([]);
+    const [orderList, setOrderList] = useState([]);
+    const [nursingrList, setNursingList] = useState([]);
+
     const [regData, setRegData] = useState({});
     const [equipmentData, setEquipmentData] = useState({});
-    const [loaded, setLoaded] = useState({ user: false, equipment: false });
+    const [nursingData, setNursingData] = useState({});
+    const [orderData, setOrderData] = useState({});
+
 
     const useService = useContext(UserContext)
     const equipmentService = useContext(EquipmentContext);
+    const orderService = useContext(OrderContext);
+
 
     const fetchUsers = () => {
         return useService.getAllUsers()
@@ -47,40 +64,37 @@ const AdminDashboard = props => {
             })
     }
 
+
+    const fetchOrder = () => {
+        return orderService.getAll()
+            .then(data => {
+                console.log(data);
+                setOrderList(data);
+                return data
+            })
+    }
+
     useEffect(() => {
         fetchUsers()
             .then(data => {
                 console.log(data);
                 prepareRegData(data);
             })
+
+
         fetchEquipments()
             .then(data => {
                 console.log(data);
                 prepareEqData(data);
             })
-    }, [])
 
-    // drawchart(id, datapoints, title, unit, xlabel) {
-    //     var chart = new CanvasJS.Chart(id, {
-    //       animationEnabled: true,
-    //       theme: 'light2',
-    //       title: {
-    //         text: title,
-    //       },
-    //       axisY: {
-    //         title: xlabel,
-    //         titleFontSize: 24,
-    //       },
-    //       data: [
-    //         {
-    //           type: 'column',
-    //           yValueFormatString: `#,### ${unit}`,
-    //           dataPoints: datapoints,
-    //         },
-    //       ],
-    //     });
-    //     chart.render();
-    //   }
+        fetchOrder()
+            .then(data => {
+                console.log(data);
+                prepareOrData(data);
+            })
+
+    }, [])
 
     const prepareRegData = async users => {
         getDatewiseValues(users, 'created').then(data => {
@@ -89,13 +103,6 @@ const AdminDashboard = props => {
             reg['dates'] = data[0];
             reg['values'] = data[1];
             setRegData(reg);
-            let load = update(loaded, {
-                user: {
-                    $set: true
-                }
-            });
-
-            setLoaded(load);
         });
     }
 
@@ -106,15 +113,20 @@ const AdminDashboard = props => {
             reg['dates'] = data[0];
             reg['values'] = data[1];
             setEquipmentData(reg);
-            let load = update(loaded, {
-                equipment: {
-                    $set: true
-                }
-            });
-
-            setLoaded(load);
         });
     }
+
+
+    const prepareOrData = async users => {
+        getDatewiseValues(users, 'created').then(data => {
+            console.log(data)
+            let reg = {};
+            reg['dates'] = data[0];
+            reg['values'] = data[1];
+            setOrderData(reg);
+        });
+    }
+
 
 
     const getDatewiseValues = async (records, colname) => {
@@ -169,7 +181,8 @@ const AdminDashboard = props => {
             maintainAspectRatio: false,
         }
 
-        if (loaded.user) {
+
+        if (data) {
             return (
                 <Bar data={{
                     labels: labels,
@@ -191,6 +204,65 @@ const AdminDashboard = props => {
 
     return (
         <div className="col-md-11 mx-auto">
+
+            <div className="row">
+                <div className="col-md-6">
+                    <Card className={clsx(baseClasses.card, customClasses.card)}>
+                        <CardContent>
+                            <div className="row">
+                                <div className="col-8">
+                                    <p className={customClasses.infoTitle}>Registrations : </p>
+                                </div>
+                                <div className="col-4 mx-auto">
+                                    <p className={customClasses.info}>{usersList.length}</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+                <div className="col-md-6">
+                    <Card className={clsx(baseClasses.card, customClasses.card)}>
+                        <CardContent>
+                            <div className="row">
+                                <div className="col-8">
+                                    <p className={customClasses.infoTitle}>Equipments : </p>
+                                </div>
+                                <div className="col-4 mx-auto">
+                                    <p className={customClasses.info}>{equipmentList.length}</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+                <div className="col-md-6">
+                    <Card className={clsx(baseClasses.card, customClasses.card)}>
+                        <CardContent>
+                            <div className="row">
+                                <div className="col-8">
+                                    <p className={customClasses.infoTitle}>Service Booking: </p>
+                                </div>
+                                <div className="col-4 mx-auto">
+                                    <p className={customClasses.info}>{nursingrList.length}</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+                <div className="col-md-6">
+                    <Card className={clsx(baseClasses.card, customClasses.card)}>
+                        <CardContent>
+                            <div className="row">
+                                <div className="col-8">
+                                    <p className={customClasses.infoTitle}>Order : </p>
+                                </div>
+                                <div className="col-4 mx-auto">
+                                    <p className={customClasses.info}>{orderList.length}</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
             <div className="row">
                 <div className="col-md-6">
                     <Card className={clsx(baseClasses.card, customClasses.card)}>
@@ -219,13 +291,13 @@ const AdminDashboard = props => {
                         <CardContent>
                             <Typography className={baseClasses.title} color="textSecondary" gutterBottom>
                                 Word of the Day
-                  </Typography>
+                            </Typography>
                             <Typography className={baseClasses.pos} color="textSecondary">
                                 adjective
-                  </Typography>
+                            </Typography>
                             <Typography variant="body2" component="p">
                                 well meaning and kindly.
-                    <br />
+                                <br />
                                 {'"a benevolent smile"'}
                             </Typography>
                         </CardContent>
@@ -239,13 +311,13 @@ const AdminDashboard = props => {
                         <CardContent>
                             <Typography className={baseClasses.title} color="textSecondary" gutterBottom>
                                 Word of the Day
-                  </Typography>
+                            </Typography>
                             <Typography className={baseClasses.pos} color="textSecondary">
                                 adjective
-                  </Typography>
+                            </Typography>
                             <Typography variant="body2" component="p">
                                 well meaning and kindly.
-                    <br />
+                                <br />
                                 {'"a benevolent smile"'}
                             </Typography>
                         </CardContent>
@@ -260,13 +332,13 @@ const AdminDashboard = props => {
                 <CardContent className={baseClasses.card.backgroundColor}>
                     <Typography className={baseClasses.title} color="textSecondary" gutterBottom>
                         Word of the Day
-                  </Typography>
+                    </Typography>
                     <Typography className={baseClasses.pos} color="textSecondary">
                         adjective
-                  </Typography>
+                    </Typography>
                     <Typography variant="body2" component="p">
                         well meaning and kindly.
-                    <br />
+                        <br />
                         {'"a benevolent smile"'}
                     </Typography>
                 </CardContent>

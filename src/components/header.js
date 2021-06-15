@@ -41,6 +41,10 @@ const Header = props => {
         },
         title: {
             flexGrow: 1,
+            fontSize: '1.5em',
+            color: 'white',
+            fontWeight: 'bold',
+            textDecoration: 'none'
         },
         link: {
             color: 'white',
@@ -73,7 +77,7 @@ const Header = props => {
         sessionStorage.removeItem('user');
         userService.setLoggedin(false);
         userService.setCurrentUser(null);
-        history.push('/app/login');
+        history.push('/app');
     }
 
     const renderLoggedIn = () => {
@@ -83,12 +87,9 @@ const Header = props => {
 
             return (
                 <div>
-                    <Link to="/admin/dashboard" className={classes.link}>
-                        <Button color="inherit">Dashboard</Button>
-                    </Link>
-                    <Link to="/admin/dashboard" className={classes.link}>
-                        <Button color="inherit" onClick={handleLogout}>Logout</Button>
-                    </Link>
+                    <Button color="inherit" component={Link} to="/admin/dashboard">Dashboard</Button>
+
+                    <Button component={Link} color="inherit" to="/admin/dashboard" onClick={handleLogout}>Logout</Button>
                 </div>
             )
         } else {
@@ -97,6 +98,8 @@ const Header = props => {
                     <Link to="/app/login" className={classes.link}>
                         <Button color="inherit">Login</Button>
                     </Link>
+
+                    
 
                     <Link to="/app/register" className={classes.link}>
                         <Button color="inherit">Register</Button>
@@ -115,8 +118,8 @@ const Header = props => {
             })}>
             <Toolbar>
                 {showMenuButton()}
-                <Typography variant="h6" className={classes.title}>
-                    <Link to="/home">{app_config.projectTitle}</Link>
+                <Typography variant="h6" className={classes.title} component={Link} to="/home">
+                    {app_config.projectTitle}
                 </Typography>
                 {
                     renderLoggedIn()

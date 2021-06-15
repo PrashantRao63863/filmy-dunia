@@ -78,13 +78,9 @@ const ListEquipments = () => {
                                                 />
                                                 <div className="row">
                                                     <div className="col">
-                                                        <Button color={'primary'} fullWidth className={styles.cta}>
-                                                            <Link to={`/app/equipmentdetails/${equipment._id}`}>Buy Now</Link> <ChevronRightRounded />
-                                                        </Button>
-                                                    </div>
-                                                    <div className="col">
-                                                        <Button color={'primary'} fullWidth className={styles.cta}>
-                                                            Rent Now <ChevronRightRounded />
+                                                        <Button color={'primary'} fullWidth className={styles.cta} component={Link} to={`/app/equipmentdetails/${equipment._id}`}>
+                                                            View More
+                                                            <ChevronRightRounded />
                                                         </Button>
                                                     </div>
                                                 </div>

@@ -2,7 +2,6 @@ const mongoose = require('../connection');
 
 const schema = new mongoose.Schema({
     name: String,
-    age: String,
     description: String,
     category: String,
     avatar: String,

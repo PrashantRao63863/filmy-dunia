@@ -7,6 +7,7 @@ import cssClasses from "../cssClasses";
 import clsx from 'clsx';
 import Rating from '@material-ui/lab/Rating';
 import { UserContext } from "../../providers/userContext";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -31,6 +32,7 @@ const EquipmentDetails = () => {
     const [rating, setRating] = useState(3)
     const [text, setText] = useState("");
     const { id } = useParams();
+    const history = useHistory();
     const wrapper = createRef();
     const url = app_config.api_url + '/';
 
@@ -87,6 +89,16 @@ const EquipmentDetails = () => {
 
     }
 
+    const handleOrder = () => {
+        sessionStorage.setItem('order-item', JSON.stringify(equipmentData));
+        history.push('/app/checkout');
+    }
+
+    const handleRent = () => {
+        sessionStorage.setItem('order-item', JSON.stringify(equipmentData));
+        history.push('/app/rent');
+    }
+
     const renderReviews = () => {
         if (equipmentData.reviews)
             return equipmentData.reviews.map((review, index) => {
@@ -105,14 +117,17 @@ const EquipmentDetails = () => {
     if (equipmentData)
         return (
             <div className="col-md-10 mx-auto" >
-                <h2 className="text-center">Options</h2>
-                <hr />
+                <Card>
+                    <h2 className="text-center">Options</h2>
+                    <hr />
 
-                <div className="row">
-                    <div className="col-md-6">
+                    <div className="img-area">
                         <img src={`${url}${equipmentData.avatar}`} className={clsx(cssClasses.image, "img-fluid")} />
+
                     </div>
-                    <div className="col-md-6">
+                    <hr />
+
+                    <div className="col-md-10 mx-auto">
                         <h3>{equipmentData.name}</h3>
                         <Rating name={'rating'} value={2} />
                         <Typography variant={'body2'} >
@@ -120,25 +135,36 @@ const EquipmentDetails = () => {
                         </Typography>
                         <p>{equipmentData.description}</p>
                         <p>{equipmentData.features}</p>
-                        <h1>{equipmentData.price}</h1>
+                        <h1>₹ {equipmentData.price} /-</h1>
+
+                        <div className="row">
+                            <Button className="col-md-5 mt-5" variant="contained" color="primary" onClick={handleOrder}>Order Now</Button>
+                            {
+                                equipmentData.rentable ? <Button className="col-md-5 mt-5" variant="contained" color="primary" onClick={handleRent}>Rent Now</Button> : ''
+                            }
+                        </div>
+
+
+
+                        <h3>Reviews</h3>
+                        <hr />
+                        {
+                            renderReviews()
+                        }
+
+                        {
+                            renderReviewForm()
+                        }
 
                     </div>
-                </div>
-
-                <h3>Reviews</h3>
-                <hr />
-                {
-                    renderReviews()
-                }
-
-                {
-                    renderReviewForm()
-                }
 
 
-                <Backdrop ref={wrapper} className={classes.backdrop} open={loading} onClick={handleClose}>
-                    <CircularProgress color="inherit" />
-                </Backdrop>
+
+
+                    <Backdrop ref={wrapper} className={classes.backdrop} open={loading} onClick={handleClose}>
+                        <CircularProgress color="inherit" />
+                    </Backdrop>
+                </Card>
             </div>
         )
     else

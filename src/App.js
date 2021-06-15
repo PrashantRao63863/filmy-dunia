@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { UserContext, UserProvider } from "./providers/userContext";
 
 import { ThemeProvider } from "@material-ui/core";
@@ -64,13 +64,16 @@ function App() {
         <CrewProvider>
           <EquipmentProvider>
             <Router>
-              <Route path="/app" component={AppComponent}></Route>
-              <Route path="/admin" component={Admin}></Route>
-              <Route path="/home" component={HomeComponent}></Route>
-              <Elements stripe={stripe}>
-                <Route path="/user" component={UserDashboard}></Route>
-              </Elements>
+              <Switch>
+                <Redirect exact path="/" to="/home"></Redirect>
+                <Route path="/app" component={AppComponent}></Route>
+                <Route path="/admin" component={Admin}></Route>
+                <Route path="/home" component={HomeComponent}></Route>
+                <Elements stripe={stripe}>
+                  <Route path="/user" component={UserDashboard}></Route>
+                </Elements>
 
+              </Switch>
 
             </Router>
           </EquipmentProvider>

@@ -8,7 +8,6 @@ import ListEquipments from './listEquipments';
 import EquipmentDetails from './equipmentDetails';
 import ForgotPassword from './forgotpassword';
 import ListCrew from './listCrew';
-import crewDetails from './crewDetails';
 import CrewDetails from './crewDetails';
 
 const drawerWidth = 240;
@@ -37,21 +36,23 @@ const AppComponent = () => {
     ]
 
     return (
-        <div>
+        <div className="auth" style={{ height: '100vh' }}>
             <Header open={open} setOpen={setOpen} drawerWidth={drawerWidth} handleDrawerOpen={handleDrawerOpen} />
 
-            <Switch>
-                <Route exact path="/app">
-                    <Redirect to="/app/login" />
-                </Route>
-                <Route path={`${path}/login`} component={Login} />
-                <Route path={`${path}/register`} component={Register} />
-                <Route path={`${path}/reset`} component={ForgotPassword} />
-                <Route path={`${path}/listequipments`} component={ListEquipments} />
-                <Route path={`${path}/equipmentdetails/:id`} component={EquipmentDetails} />
-                <Route path={`${path}/listcrew`} component={ListCrew} />
-                <Route path={`${path}/crewdetails/:id`} component={CrewDetails} />
-            </Switch>
+            <div>
+                <Switch>
+                    <Route exact path="/app">
+                        <Redirect to="/app/login" />
+                    </Route>
+                    <Route path={`${path}/login`} component={Login} />
+                    <Route path={`${path}/register`} component={Register} />
+                    <Route path={`${path}/reset`} component={ForgotPassword} />
+                    <Route path={`${path}/listequipments`} component={ListEquipments} />
+                    <Route path={`${path}/equipmentdetails/:id`} component={EquipmentDetails} />
+                    <Route path={`${path}/listcrew`} component={ListCrew} />
+                    <Route path={`${path}/crewdetails/:id`} component={CrewDetails} />
+                </Switch>
+            </div>
         </div>
     )
 }

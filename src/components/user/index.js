@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DrawerComponent from '../drawer';
 import Header from '../header';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
@@ -7,6 +7,9 @@ import Profile from '../profile';
 import Checkout from './checkout';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core';
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
+import RentCrew from './rentCrew';
 
 const drawerWidth = 240;
 
@@ -35,6 +38,9 @@ const UserDashboard = () => {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
 
+    const [currentUser, setCurrentUser] = useState({});
+    const history = useHistory();
+
     const handleDrawerOpen = () => {
         console.log('drawer opened');
         setOpen(true);
@@ -43,6 +49,22 @@ const UserDashboard = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+
+    useEffect(() => {
+        if (currentUser) {
+            if (currentUser) {
+                return;
+            }
+        }
+        Swal.fire({
+            icon: 'error',
+            title: 'Not Permitted',
+            text: 'You do not have admin permission'
+        })
+        history.push('/app/login');
+    }, [])
+
 
     let { path, url } = useRouteMatch();
 
@@ -69,6 +91,9 @@ const UserDashboard = () => {
                     </Route>
                     <Route path={`${path}/checkout`}>
                         <Checkout />
+                    </Route>
+                    <Route path={`${path}/rentcrew`}>
+                        <RentCrew />
                     </Route>
                 </Switch>
             </div>

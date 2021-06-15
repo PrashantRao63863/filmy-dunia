@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DrawerComponent from '../drawer';
 import Header from '../header';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PeopleIcon from '@material-ui/icons/People';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import { Route, useRouteMatch, Switch, useHistory } from 'react-router-dom';
 import ManageUser from './manageuser';
 import AdminDashboard from './dashboard';
 import Profile from '../profile';
@@ -12,6 +12,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core';
 import AddEquipment from './addequipment';
 import AddCrew from './addcrew';
+import Swal from 'sweetalert2';
 
 const drawerWidth = 240;
 
@@ -39,6 +40,9 @@ const Admin = () => {
     const [open, setOpen] = useState(true);
 
     const classes = useStyles();
+
+    const history = useHistory();
+    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
     let { path, url } = useRouteMatch();
     console.log(path)
@@ -80,8 +84,23 @@ const Admin = () => {
         setOpen(false);
     };
 
+    useEffect(() => {
+        if (currentUser) {
+            console.log(currentUser);
+            if (currentUser.isadmin) {
+                return;
+            }
+        }
+        Swal.fire({
+            icon: 'error',
+            title: 'Not Permitted',
+            text: 'You do not have admin permission'
+        })
+        history.push('/app/login');
+    }, [])
+
     return (
-        <div>
+        <div className="admin" style={{ height: '100vh' }}>
             <Header open={open} drawerWidth={drawerWidth} handleDrawerOpen={handleDrawerOpen} drawer={true} />
             <DrawerComponent
                 open={open}
@@ -90,7 +109,7 @@ const Admin = () => {
                 handleDrawerClose={handleDrawerClose}
                 drawerOptions={drawerOptions} />
 
-            <div className={clsx(classes.content, {
+            <div className={clsx("admindash", classes.content, {
                 [classes.contentShift]: open,
             })}>
                 <Switch>

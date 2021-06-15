@@ -13,7 +13,7 @@ const HomeComponent = props => {
                         <ul>
                             <li><Link className="nav-link scrollto active" to="/app/login">Login</Link></li>
                             <li><a className="nav-link scrollto" href="#about">About</a></li>
-                            <li><a className="nav-link scrollto" href="#services">Services</a></li>
+                            <li> <Link className="nav-link" to="/app/listcrew">Services</Link></li>
                             <li><a className="nav-link scrollto " href="#portfolio">Portfolio</a></li>
                             <li><a className="nav-link scrollto" href="#team">Team</a></li>
                             <li><a href="blog.html">Blog</a></li>
@@ -67,7 +67,7 @@ const HomeComponent = props => {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                                     magna aliqua.
-                </p>
+                                </p>
                                 <ul>
                                     <li><i className="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
                                     <li><i className="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
@@ -79,7 +79,7 @@ const HomeComponent = props => {
                                     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                                     velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                                     culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                                </p>
                                 <a href="#" className="btn-learn-more">Learn More</a>
                             </div>
                         </div>
@@ -426,7 +426,7 @@ const HomeComponent = props => {
                                 <div id="faq1" className="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                  </p>
+                                    </p>
                                 </div>
                             </li>
 
@@ -435,7 +435,7 @@ const HomeComponent = props => {
                                 <div id="faq2" className="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </p>
+                                    </p>
                                 </div>
                             </li>
 
@@ -444,7 +444,7 @@ const HomeComponent = props => {
                                 <div id="faq3" className="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                  </p>
+                                    </p>
                                 </div>
                             </li>
 
@@ -453,7 +453,7 @@ const HomeComponent = props => {
                                 <div id="faq4" className="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </p>
+                                    </p>
                                 </div>
                             </li>
 
@@ -462,7 +462,7 @@ const HomeComponent = props => {
                                 <div id="faq5" className="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                  </p>
+                                    </p>
                                 </div>
                             </li>
 
@@ -471,7 +471,7 @@ const HomeComponent = props => {
                                 <div id="faq6" className="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-                  </p>
+                                    </p>
                                 </div>
                             </li>
 
@@ -651,8 +651,8 @@ const HomeComponent = props => {
                                 <h3>Tempo</h3>
                                 <p>
                                     A108 Adam Street <br />
-                                                                                                        New York, NY 535022<br />
-                                                                                                            United States <br /><br />
+                                    New York, NY 535022<br />
+                                    United States <br /><br />
                                     <strong>Phone:</strong> +1 5589 55488 55<br />
                                     <strong>Email:</strong> info@example.com<br />
                                 </p>
@@ -697,7 +697,7 @@ const HomeComponent = props => {
                     <div className="me-md-auto text-center text-md-start">
                         <div className="copyright">
                             &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
-            </div>
+                        </div>
 
                     </div>
                     <div className="social-links text-center text-md-right pt-3 pt-md-0">

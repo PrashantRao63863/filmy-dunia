@@ -20,8 +20,10 @@ const AddCrew = () => {
     const crewForm = {
         name: '',
         avatar: '',
-        designation: '',
-        rentPrice: ''
+        description: '',
+        price: '',
+        category: '',
+        created: new Date()
     };
 
     const showAvatar = () => {
@@ -87,7 +89,7 @@ const AddCrew = () => {
             <div className="card">
                 <div className="card-body">
                     <h3 className="text-center">Add staff Here</h3>
-                    <div className="row mt-5" style={{ height: '10rem' }}>
+                    <div className="row mt-5" >
                         <div className="col-md-4 mx-auto">
                             {showAvatar()}
                         </div>
@@ -106,19 +108,24 @@ const AddCrew = () => {
                             handleSubmit,
                             isSubmitting
                         }) => (
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className="mt-4">
                                 <div className="form-floating mb-3">
                                     <input type="text" className="form-control" id="name" onChange={handleChange} value={values.name} placeholder=" " />
                                     <label htmlFor="name">Name</label>
                                 </div>
 
                                 <div className="form-floating mb-3">
-                                    <input type="text" className="form-control" id="designation" onChange={handleChange} value={values.designation} placeholder=" " />
-                                    <label htmlFor="name">Designation</label>
+                                    <input type="text" className="form-control" id="description" onChange={handleChange} value={values.description} placeholder=" " />
+                                    <label htmlFor="description">Description</label>
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="text" className="form-control" id="rentPrice" onChange={handleChange} value={values.rentPrice} placeholder=" " />
-                                    <label htmlFor="name">Rent Price</label>
+                                    <input type="text" className="form-control" id="price" onChange={handleChange} value={values.price} placeholder=" " />
+                                    <label htmlFor="price">Rent Price</label>
+                                </div>
+
+                                <div className="form-floating mb-3">
+                                    <input type="text" className="form-control" id="category" onChange={handleChange} value={values.category} placeholder=" " />
+                                    <label htmlFor="category">Category</label>
                                 </div>
 
                                 <div className="text-center">

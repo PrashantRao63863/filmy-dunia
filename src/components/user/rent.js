@@ -12,7 +12,7 @@ import cssClasses from "../cssClasses";
 
 const useStyles = makeStyles(theme => ({
     card: {
-        marginTop: '10rem',
+        marginTop: '5rem',
     }
 }));
 
@@ -41,7 +41,7 @@ const CARD_OPTIONS = {
     }
 };
 
-const Checkout = props => {
+const Rent = props => {
 
     const styles = useStyles();
     const gStyles = cssClasses();
@@ -91,7 +91,7 @@ const Checkout = props => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount: equipmentDetails.price * 100 })
+            body: JSON.stringify({ amount: equipmentDetails.rentPrice * 100 })
         }
         return fetch(url + '/create-payment-intent', requestOptions)
             .then(response => response.json())
@@ -139,10 +139,10 @@ const Checkout = props => {
 
     return (
         <div className="col-md-11 mx-auto">
-            <Card className={clsx(styles, gStyles)}>
+            <Card className={clsx(styles.card, gStyles.card)}>
                 <CardContent>
 
-                    <h2 className="text-center">Order Checkout</h2>
+                    <h2 className="text-center h2">Rent Booking Checkout</h2>
                     <hr />
 
                     <div className="row">
@@ -163,7 +163,7 @@ const Checkout = props => {
                                 <p className="detail">{equipmentDetails.description}</p>
 
                                 <p className="detail-name mt-3">Price :</p>
-                                <p className="detail-price" style={{ fontSize: '3rem' }}>{equipmentDetails.price}</p>
+                                <p className="detail-price" style={{ fontSize: '3rem' }}> {equipmentDetails.rentPrice} /month</p>
 
                             </div>
 
@@ -212,7 +212,7 @@ const Checkout = props => {
                                     options={CARD_OPTIONS}
                                 />
 
-                                <Button disabled={isPaymentLoading} className="mt-5 w-100" variant="contained" color="secondary" type="submit">{isPaymentLoading ? "Loading..." : `Pay ₹${equipmentDetails.price}/-`}</Button>
+                                <Button disabled={isPaymentLoading} className="mt-5 w-100" variant="contained" color="secondary" type="submit">{isPaymentLoading ? "Loading..." : `Pay ₹${equipmentDetails.rentPrice}/-`}</Button>
 
                             </div>
                         </form>
@@ -225,4 +225,4 @@ const Checkout = props => {
     )
 }
 
-export default Checkout;
+export default Rent;
