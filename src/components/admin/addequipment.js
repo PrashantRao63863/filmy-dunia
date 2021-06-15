@@ -154,11 +154,11 @@ const AddEquipment = () => {
                                         })
                                     }
 
-                                    <option value="Health Monitoring" />
-                                    <option value="Life Support Equipment" />
-                                    <option value="Diagnostic Equipment" />
-                
-                                    <option value="Durable Medical Equipment (DME)" />
+                                    <option value="Video" />
+                                    <option value="Lighting" />
+                                    <option value="Audio" />
+                                    <option value="Documentary" />
+                                    <option value="Filming" />
                                     
 
                                 </datalist>
