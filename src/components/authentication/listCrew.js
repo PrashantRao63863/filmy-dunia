@@ -55,7 +55,7 @@ const ListCrew = () => {
 
     const handleHire = (crew) => {
         sessionStorage.setItem('crew', JSON.stringify(crew));
-        history.push('/user/');
+        history.push('/user/rentcrew');
     }
 
     return (
@@ -86,10 +86,10 @@ const ListCrew = () => {
                                                     }
                                                 />
                                                 <div className="col">
-                                                        <Button color={'primary'} fullWidth className={styles.cta} onClick={e => handleHire(crew)}>
-                                                            Hire Now <ChevronRightRounded />
-                                                        </Button>
-                                                    </div>
+                                                    <Button color={'primary'} fullWidth className={styles.cta} onClick={e => handleHire(crew)}>
+                                                        Hire Now <ChevronRightRounded />
+                                                    </Button>
+                                                </div>
                                             </CardContent>
                                         </Card>
                                     </div>
