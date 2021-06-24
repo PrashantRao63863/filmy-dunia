@@ -12,12 +12,12 @@ const HomeComponent = props => {
                     <nav id="navbar" className="navbar">
                         <ul>
 
-                            <li><Link className="nav-link scrollto active" to="/app/login">Login</Link></li>                            
-                            <li><Link className="nav-link scrollto active" to="/app/register">Register</Link></li>                            
+                            <li><Link className="nav-link scrollto active" to="/app/login">Login</Link></li>
+                            <li><Link className="nav-link scrollto active" to="/app/register">Register</Link></li>
 
                             <li><a className="nav-link scrollto" href="#about">About</a></li>
                             <li> <Link className="nav-link" to="/app/listcrew">Services</Link></li>
-                            <li><a className="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+                            <li><a className="nav-link scrollto " href="#portfolio">Product gallery</a></li>
                             <li><a className="nav-link scrollto" href="#team">Team</a></li>
                             <li><a href="blog.html">Blog</a></li>
                             <li className="dropdown"><a href="#"><span>Filmy upkaran services</span> <i className="bi bi-chevron-down"></i></a>
@@ -101,117 +101,36 @@ const HomeComponent = props => {
                         <div className="row">
                             <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                                 <div className="icon-box">
-                                    <div className="icon"><i className="bx bxl-dribbble"></i></div>
-                                    <h4 className="title"><a href="">Lorem Ipsum</a></h4>
-                                    <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div className="icon-box">
-                                    <div className="icon"><i className="bx bx-file"></i></div>
-                                    <h4 className="title"><a href="">Sed ut perspiciatis</a></h4>
-                                    <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div className="icon-box">
-                                    <div className="icon"><i className="bx bx-tachometer"></i></div>
-                                    <h4 className="title"><a href="">Magni Dolores</a></h4>
-                                    <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div className="icon-box">
                                     <div className="icon"><i className="bx bx-world"></i></div>
-                                    <h4 className="title"><a href="">Nemo Enim</a></h4>
-                                    <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                                    <h4 className="title"><a href="">Globally Recognized</a></h4>
+                                    <p className="description">we provide the best renting and buying services globally.</p>
                                 </div>
                             </div>
 
-                        </div>
+                            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                                <div className="icon-box">
+                                    <div className="icon"><i className="bx bxs-tachometer"></i></div>
+                                    <h4 className="title"><a href="">Fast delivery</a></h4>
+                                    <p className="description">We provide you everything  what you need in least time.</p>
+                                </div>
+                            </div>
 
-                    </div>
-                </section>
+                            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                                <div className="icon-box">
+                                    <div className="icon"><i className="bx bx-support"></i></div>
+                                    <h4 className="title"><a href="">Crew support</a></h4>
+                                    <p className="description">We have professionals to give you right path to start.</p>
+                                </div>
+                            </div>
 
-                <section id="features" className="features">
-                    <div className="container">
+                            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                                <div className="icon-box">
+                                    <div className="icon"><i className="bx bx-user-voice"></i></div>
+                                    <h4 className="title"><a href="">Support</a></h4>
+                                    <p className="description">24*7 User support to help you throught each problem.</p>
+                                </div>
+                            </div>
 
-                        <div className="row">
-                            <div className="col-lg-3 col-md-4 col-6 col-6">
-                                <div className="icon-box">
-                                    <i className="ri-store-line" style={{ color: '#ffbb2c' }}></i>
-                                    <h3><a href="">Lorem Ipsum</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6">
-                                <div className="icon-box">
-                                    <i className="ri-bar-chart-box-line" style={{ color: '#5578ff' }}></i>
-                                    <h3><a href="">Dolor Sitema</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
-                                <div className="icon-box">
-                                    <i className="ri-calendar-todo-line" style={{ color: '#e80368' }}></i>
-                                    <h3><a href="">Sed perspiciatis</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
-                                <div className="icon-box">
-                                    <i className="ri-paint-brush-line" style={{ color: '#e361ff' }}></i>
-                                    <h3><a href="">Magni Dolores</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-database-2-line" style={{ color: "#47aeff" }}></i>
-                                    <h3><a href="">Nemo Enim</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-gradienter-line" style={{ color: '#ffa76e' }}></i>
-                                    <h3><a href="">Eiusmod Tempor</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-file-list-3-line" style={{ color: '#11dbcf' }}></i>
-                                    <h3><a href="">Midela Teren</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-price-tag-2-line" style={{ color: '#4233ff' }}></i>
-                                    <h3><a href="">Pira Neve</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-anchor-line" style={{ color: '#b2904f' }}></i>
-                                    <h3><a href="">Dirada Pack</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-disc-line" style={{ color: '#b20969' }}></i>
-                                    <h3><a href="">Moton Ideal</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-base-station-line" style={{ color: '#ff5828' }}></i>
-                                    <h3><a href="">Verdo Park</a></h3>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4 col-6 mt-4">
-                                <div className="icon-box">
-                                    <i className="ri-fingerprint-line" style={{ color: '#29cc61' }}></i>
-                                    <h3><a href="">Flavor Nivelanda</a></h3>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -233,29 +152,18 @@ const HomeComponent = props => {
                     <div className="container">
 
                         <div className="section-title">
-                            <h2>Portfolio</h2>
-                            <h3>Check our <span>Portfolio</span></h3>
+                            <h2>Product Gallery</h2>
+                            <h3>Check our <span>Awesome Products</span></h3>
                             <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
                         </div>
 
-                        <div className="row">
-                            <div className="col-lg-12 d-flex justify-content-center">
-                                <ul id="portfolio-flters">
-                                    <li data-filter="*" className="filter-active">All</li>
-                                    <li data-filter=".filter-app">App</li>
-                                    <li data-filter=".filter-card">Card</li>
-                                    <li data-filter=".filter-web">Web</li>
-                                </ul>
-                            </div>
-                        </div>
 
                         <div className="row portfolio-container">
 
                             <div className="col-lg-4 col-md-6 portfolio-item filter-app">
                                 <img src="assets/img/portfolio/portfol1.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>App 1</h4>
-                                    <p>App</p>
+                                
                                     <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 1"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -264,8 +172,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-web">
                                 <img src="assets/img/portfolio/portfol2.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>Web 3</h4>
-                                    <p>Web</p>
+                                   
                                     <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -274,8 +181,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-app">
                                 <img src="assets/img/portfolio/portfol3.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>App 2</h4>
-                                    <p>App</p>
+                                    
                                     <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 2"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -284,8 +190,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-card">
                                 <img src="assets/img/portfolio/portfol4.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>Card 2</h4>
-                                    <p>Card</p>
+                                    
                                     <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Card 2"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -294,8 +199,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-web">
                                 <img src="assets/img/portfolio/portfol5.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>Web 2</h4>
-                                    <p>Web</p>
+                                  
                                     <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 2"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -304,8 +208,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-app">
                                 <img src="assets/img/portfolio/portfol6.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>App 3</h4>
-                                    <p>App</p>
+                                   
                                     <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 3"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -314,8 +217,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-card">
                                 <img src="assets/img/portfolio/portfol7.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>Card 1</h4>
-                                    <p>Card</p>
+                                   
                                     <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Card 1"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -324,8 +226,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-card">
                                 <img src="assets/img/portfolio/portfol8.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>Card 3</h4>
-                                    <p>Card</p>
+                                    
                                     <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Card 3"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -334,8 +235,7 @@ const HomeComponent = props => {
                             <div className="col-lg-4 col-md-6 portfolio-item filter-web">
                                 <img src="assets/img/portfolio/portfol9.jpg" className="img-fluid" alt="" />
                                 <div className="portfolio-info">
-                                    <h4>Web 3</h4>
-                                    <p>Web</p>
+                                  
                                     <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
                                     <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
                                 </div>
@@ -351,23 +251,18 @@ const HomeComponent = props => {
 
                         <div className="section-title">
                             <h2>Pricing</h2>
-                            <h3>Our Competing <span>Prices</span></h3>
-                            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                            <h3>Things you need at affordable<span> Prices</span></h3>
+                            <p>Services you can rely and trust easily.</p>
                         </div>
 
                         <div className="row">
 
                             <div className="col-lg-4 col-md-6">
                                 <div className="box">
-                                    <h3>Free</h3>
-                                    <h4><sup>$</sup>0<span> / month</span></h4>
-                                    <ul>
-                                        <li>Aida dere</li>
-                                        <li>Nec feugiat nisl</li>
-                                        <li>Nulla at volutpat dola</li>
-                                        <li className="na">Pharetra massa</li>
-                                        <li className="na">Massa ultricies mi</li>
-                                    </ul>
+                                    <h3>Microphone</h3>
+                                    <img src="assets/img/pricing/price2.jpg" className="img-fluid" alt="" />
+                                    <h4><sup>₹</sup>500<span> / month</span></h4>
+                                    <h3>Noise cancelation microphone at best prices for Rent/Buy</h3>
                                     <div className="btn-wrap">
                                         <a href="#" className="btn-buy">Buy Now</a>
                                     </div>
@@ -375,17 +270,11 @@ const HomeComponent = props => {
                             </div>
 
                             <div className="col-lg-4 col-md-6 mt-4 mt-md-0">
-                                <div className="box recommended">
-                                    <span className="recommended-badge">Recommended</span>
-                                    <h3>Business</h3>
-                                    <h4><sup>$</sup>19<span> / month</span></h4>
-                                    <ul>
-                                        <li>Aida dere</li>
-                                        <li>Nec feugiat nisl</li>
-                                        <li>Nulla at volutpat dola</li>
-                                        <li>Pharetra massa</li>
-                                        <li className="na">Massa ultricies mi</li>
-                                    </ul>
+                                <div className="box">
+                                    <h3>Camera</h3>
+                                    <img src="assets/img/pricing/price1.jpg" className="img-fluid" alt="" />
+                                    <h4><sup>₹</sup>1500<span> / month</span></h4>
+                                    <h5>Capture the best in you in affordable price.A camera ehich fulfils all your needs.</h5>
                                     <div className="btn-wrap">
                                         <a href="#" className="btn-buy">Buy Now</a>
                                     </div>
@@ -394,15 +283,10 @@ const HomeComponent = props => {
 
                             <div className="col-lg-4 col-md-6 mt-4 mt-lg-0">
                                 <div className="box">
-                                    <h3>Developer</h3>
-                                    <h4><sup>$</sup>29<span> / month</span></h4>
-                                    <ul>
-                                        <li>Aida dere</li>
-                                        <li>Nec feugiat nisl</li>
-                                        <li>Nulla at volutpat dola</li>
-                                        <li>Pharetra massa</li>
-                                        <li>Massa ultricies mi</li>
-                                    </ul>
+                                    <h3>Crerw support</h3>
+                                    <img src="assets/img/pricing/price3.jpg" className="img-fluid" alt="" />
+                                    <h4><sup>₹</sup>2000<span> / month</span></h4>
+                                   <h5>Get professional support for you. A guidance to start and achieve your dreams.</h5>
                                     <div className="btn-wrap">
                                         <a href="#" className="btn-buy">Buy Now</a>
                                     </div>
