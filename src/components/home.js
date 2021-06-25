@@ -16,25 +16,18 @@ const HomeComponent = props => {
                             <li><Link className="nav-link scrollto active" to="/app/register">Register</Link></li>
 
                             <li><a className="nav-link scrollto" href="#about">About</a></li>
-                            <li> <Link className="nav-link" to="/app/listcrew">Services</Link></li>
+                            
                             <li><a className="nav-link scrollto " href="#portfolio">Product gallery</a></li>
                             <li><a className="nav-link scrollto" href="#team">Team</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li className="dropdown"><a href="#"><span>Filmy upkaran services</span> <i className="bi bi-chevron-down"></i></a>
+        
+                            <li className="dropdown"><a href="#"><span>Services</span> <i className="bi bi-chevron-down"></i></a>
                                 <ul>
-                                    <li><a href="#">Drop Down 1</a></li>
-                                    <li className="dropdown"><a href="#"><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
-                                        <ul>
-                                            <li><a href="#">Deep Drop Down 1</a></li>
-                                            <li><a href="#">Deep Drop Down 2</a></li>
-                                            <li><a href="#">Deep Drop Down 3</a></li>
-                                            <li><a href="#">Deep Drop Down 4</a></li>
-                                            <li><a href="#">Deep Drop Down 5</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Drop Down 2</a></li>
-                                    <li><a href="#">Drop Down 3</a></li>
-                                    <li><a href="#">Drop Down 4</a></li>
+                                    <li><Link className="nav-link" to="/app/listequipments">View Equipment</Link></li>
+                                    
+                                    <li><Link className="nav-link" to="/app/listcrew">View Crew Member</Link></li>
+                                    
+                                    <li><a href="#">Manage Order</a></li>
+                                    
                                 </ul>
                             </li>
                             <li><a className="nav-link scrollto" href="#contact">Contact</a></li>

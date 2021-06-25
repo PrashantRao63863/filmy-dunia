@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core';
 import AddEquipment from './addequipment';
 import ManageEquipment from './manageequipment';
 import AddCrew from './addcrew';
+import UpdateEquipment from './updateEquipment';
 import Swal from 'sweetalert2';
 
 const drawerWidth = 240;
@@ -62,7 +63,7 @@ const Admin = () => {
         {
             name: "ManageUsers",
             icon: <PeopleIcon />,
-            link: "/admin/manageusers"
+            link: "/admin/manageuser"
         },
         {
             name: "Add New Equipment",
@@ -130,6 +131,9 @@ const Admin = () => {
                     <Route path={`${path}/addequipment`} component={AddEquipment} />
                     <Route path={`${path}/manageequipment`} component={ManageEquipment} />
                     <Route path={`${path}/addcrew`} component={AddCrew} />
+                    
+                    <Route path={`${path}/updatequipment/:id`} component={UpdateEquipment} />
+
                     <Route exact path={`${path}`}>
                         <Profile />
                     </Route>

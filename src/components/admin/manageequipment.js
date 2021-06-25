@@ -67,6 +67,7 @@ const ManageEquipment = props => {
                                     </div>
                                 </div>
                                 <br />
+
                                 <div className="row">
                                     <div className="col-4">
                                         <p>Price</p>
@@ -76,7 +77,7 @@ const ManageEquipment = props => {
                                     </div>
                                 </div>
 
-                                <Button varaint="outline">Update</Button>
+                                <Button varaint="outline" component={Link} to={`/admin/updatequipment/${equipment._id}`}>Update</Button>
                                 <Button
                                     varaint="outline"
                                     color="secondary"
@@ -85,8 +86,6 @@ const ManageEquipment = props => {
                                     Delete
                                 </Button>
                             </div>
-
-
                         </AccordionDetails>
                     </Accordion>
                 );
