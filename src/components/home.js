@@ -55,26 +55,23 @@ const HomeComponent = props => {
                         <div className="section-title">
                             <h2>About</h2>
                             <h3>Learn More <span>About Us</span></h3>
-                            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                            <p>We filmy upkaran help you to find best equipments and services to led you to sucess.</p>
                         </div>
 
                         <div className="row content">
                             <div className="col-lg-6">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
+                                 We provide you the best suitable equipments according to your need and a professional crew support for proper guidence.Some of key features youi get:
                                 </p>
                                 <ul>
-                                    <li><i className="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-                                    <li><i className="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-                                    <li><i className="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                                    <li><i className="ri-check-double-line"></i> 24*7 customer support to assist you.</li>
+                                    <li><i className="ri-check-double-line"></i> Best products and proffesionals trainers.</li>
+                                    <li><i className="ri-check-double-line"></i> Enjoy services at affordable rates.</li>
                                 </ul>
                             </div>
                             <div className="col-lg-6 pt-4 pt-lg-0">
                                 <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                    culpa qui officia deserunt mollit anim id est laborum.
+                                  Making it easy for content creators and also unproffesional users to create informative and entertaining videos and help them reaching their goals.
                                 </p>
                                 <a href="#" className="btn-learn-more">Learn More</a>
                             </div>
@@ -88,7 +85,7 @@ const HomeComponent = props => {
                         <div className="section-title">
                             <h2>Services</h2>
                             <h3>We do offer awesome <span>Services</span></h3>
-                            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                            <p>We come with some amazing features to make things easier for you.</p>
                         </div>
 
                         <div className="row">
@@ -134,8 +131,8 @@ const HomeComponent = props => {
 
                         <div className="text-center">
                             <h3>Call To Action</h3>
-                            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <a className="cta-btn" href="#">Call To Action</a>
+                            <p> In serach of incredible.</p>
+                            <a className="cta-btn" href="#">Lets begin </a>
                         </div>
 
                     </div>
@@ -147,7 +144,7 @@ const HomeComponent = props => {
                         <div className="section-title">
                             <h2>Product Gallery</h2>
                             <h3>Check our <span>Awesome Products</span></h3>
-                            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                            <p>we have the best services for everyone some of them are listed down.</p>
                         </div>
 
 
@@ -366,7 +363,7 @@ const HomeComponent = props => {
                         <div className="section-title">
                             <h2>Team</h2>
                             <h3>Our Hardworking <span>Team</span></h3>
-                            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                            <p>Our tined and hard working team to get you what you need.</p>
                         </div>
 
                         <div className="row">
@@ -374,7 +371,7 @@ const HomeComponent = props => {
                             <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
                                 <div className="member">
                                     <div className="member-img">
-                                        <img src="assets/img/team/team-1.jpg" className="img-fluid" alt="" />
+                                        <img src="assets/img/team/gupta.jpeg" className="img-fluid" alt="" />
                                         <div className="social">
                                             <a href=""><i className="bi bi-twitter"></i></a>
                                             <a href=""><i className="bi bi-facebook"></i></a>
@@ -383,16 +380,16 @@ const HomeComponent = props => {
                                         </div>
                                     </div>
                                     <div className="member-info">
-                                        <h4>Walter White</h4>
-                                        <span>Chief Executive Officer</span>
+                                        <h4>Prakhar Gupta</h4>
+                                        <span>Developer</span>
                                     </div>
                                 </div>
                             </div>
-
                             <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
+                             
                                 <div className="member">
                                     <div className="member-img">
-                                        <img src="assets/img/team/team-2.jpg" className="img-fluid" alt="" />
+                                        <img src="assets/img/team/rao.jpeg" className="img-fluid" alt="" />
                                         <div className="social">
                                             <a href=""><i className="bi bi-twitter"></i></a>
                                             <a href=""><i className="bi bi-facebook"></i></a>
@@ -401,44 +398,8 @@ const HomeComponent = props => {
                                         </div>
                                     </div>
                                     <div className="member-info">
-                                        <h4>Sarah Jhonson</h4>
-                                        <span>Product Manager</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
-                                <div className="member">
-                                    <div className="member-img">
-                                        <img src="assets/img/team/team-3.jpg" className="img-fluid" alt="" />
-                                        <div className="social">
-                                            <a href=""><i className="bi bi-twitter"></i></a>
-                                            <a href=""><i className="bi bi-facebook"></i></a>
-                                            <a href=""><i className="bi bi-instagram"></i></a>
-                                            <a href=""><i className="bi bi-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                    <div className="member-info">
-                                        <h4>William Anderson</h4>
-                                        <span>CTO</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
-                                <div className="member">
-                                    <div className="member-img">
-                                        <img src="assets/img/team/team-4.jpg" className="img-fluid" alt="" />
-                                        <div className="social">
-                                            <a href=""><i className="bi bi-twitter"></i></a>
-                                            <a href=""><i className="bi bi-facebook"></i></a>
-                                            <a href=""><i className="bi bi-instagram"></i></a>
-                                            <a href=""><i className="bi bi-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                    <div className="member-info">
-                                        <h4>Amanda Jepson</h4>
-                                        <span>Accountant</span>
+                                        <h4>Prashant Rao</h4>
+                                        <span>Developer</span>
                                     </div>
                                 </div>
                             </div>
