@@ -368,7 +368,7 @@ const HomeComponent = props => {
 
                         <div className="row">
 
-                            <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
+                            <div className="col-lg-3 col-md-6">
                                 <div className="member">
                                     <div className="member-img">
                                         <img src="assets/img/team/gupta.jpeg" className="img-fluid" alt="" />
@@ -415,11 +415,11 @@ const HomeComponent = props => {
                         <div className="section-title">
                             <h2>Contact</h2>
                             <h3>Contact <span>Us</span></h3>
-                            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                            <p>Wanna get in touch with us you are welcomed.</p>
                         </div>
 
                         <div>
-                            <iframe style={{ border: 0, width: '100%', height: '270px' }} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+                            <iframe style={{ border: 0, width: '100%', height: '270px' }} src="assets/img/map.png" frameborder="0" allowfullscreen></iframe>
                         </div>
 
                         <div className="row mt-5">
@@ -429,19 +429,19 @@ const HomeComponent = props => {
                                     <div className="address">
                                         <i className="bi bi-geo-alt"></i>
                                         <h4>Location:</h4>
-                                        <p>A108 Adam Street, New York, NY 535022</p>
+                                        <p>Lucknow , Uttar Pradesh</p>
                                     </div>
 
                                     <div className="email">
                                         <i className="bi bi-envelope"></i>
                                         <h4>Email:</h4>
-                                        <p>info@example.com</p>
+                                        <p>prashantunofficial09.com , prakharji2020@gmail.com</p>
                                     </div>
 
                                     <div className="phone">
                                         <i className="bi bi-phone"></i>
                                         <h4>Call:</h4>
-                                        <p>+1 5589 55488 55s</p>
+                                        <p>Will be available soon...</p>
                                     </div>
 
                                 </div>
@@ -491,11 +491,11 @@ const HomeComponent = props => {
                             <div className="col-lg-3 col-md-6 footer-contact">
                                 <h3>Tempo</h3>
                                 <p>
-                                    A108 Adam Street <br />
-                                    New York, NY 535022<br />
-                                    United States <br /><br />
-                                    <strong>Phone:</strong> +1 5589 55488 55<br />
-                                    <strong>Email:</strong> info@example.com<br />
+                                    Lucknow <br />
+                                   Uttar Pradesh<br />
+                                    India<br /><br />
+                                    <strong>Phone:</strong> Will be available soon..<br />
+                                    <strong>Email:</strong> prashantunofficial09@gmail.com<br />
                                 </p>
                             </div>
 
@@ -513,22 +513,13 @@ const HomeComponent = props => {
                             <div className="col-lg-3 col-md-6 footer-links">
                                 <h4>Our Services</h4>
                                 <ul>
-                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                                    <li><i className="bx bx-chevron-right"></i> <a href="#">24*7 support</a></li>
+                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Buy Equipments</a></li>
+                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Rent Equipments</a></li>
+                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Rent Crew members</a></li>
+                                    <li><i className="bx bx-chevron-right"></i> <a href="#">Globally recognized</a></li>
                                 </ul>
                             </div>
-
-                            <div className="col-lg-4 col-md-6 footer-newsletter">
-                                <h4>Join Our Newsletter</h4>
-                                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                                <form action="" method="post">
-                                    <input type="email" name="email" /><input type="submit" value="Subscribe" />
-                                </form>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -537,7 +528,7 @@ const HomeComponent = props => {
 
                     <div className="me-md-auto text-center text-md-start">
                         <div className="copyright">
-                            &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
+                            &copy; Copyright <strong><span>Filmy-upkaran</span></strong>. All Rights Reserved
                         </div>
 
                     </div>
