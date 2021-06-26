@@ -4,7 +4,7 @@ import Header from '../header';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import { useRouteMatch, Switch, Route } from 'react-router';
 import Profile from '../profile';
-import Checkout from './checkout';
+import Checkout from '../authentication/checkout';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core';
 import Swal from 'sweetalert2';
@@ -65,8 +65,8 @@ const UserDashboard = () => {
         }
         Swal.fire({
             icon: 'error',
-            title: 'Not Permitted',
-            text: 'You do not have admin permission'
+            title: ' Permitted',
+            text: 'sucessfully logout'
         })
         history.push('/app/login');
     }, [])
@@ -83,7 +83,7 @@ const UserDashboard = () => {
         {
             name: "Manage Orders",
             icon: <AddShoppingCartRoundedIcon />,
-            link: `${url}/manageuserorder`
+            link: `${url}/manageUserOrders`
         },
         {
             name: "Manage Services",
@@ -116,7 +116,7 @@ const UserDashboard = () => {
                     <Route path={`${path}/rentcrew`}>
                         <RentCrew />
                     </Route>
-                    <Route path={`${path}/manageorder`}>
+                    <Route path={`${path}/manageUserOrders`}>
                         <ManageUserOrders />
                     </Route>
                 </Switch>

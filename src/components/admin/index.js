@@ -42,12 +42,12 @@ const Admin = () => {
     const [open, setOpen] = useState(true);
 
     const classes = useStyles();
-
-    const history = useHistory();
     const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
     let { path, url } = useRouteMatch();
+    const history = useHistory();
     console.log(path)
+
 
     const drawerOptions = [
         {
@@ -87,6 +87,21 @@ const Admin = () => {
             //  },
     ]
 
+    useEffect(() => {
+        if (currentUser) {
+            if (currentUser.isadmin) {
+                return;
+            }
+        }
+        Swal.fire({
+            icon: 'error',
+            title: ' Permitted',
+            text: 'logout'
+        })
+        history.push('/app/login');
+    }, [])
+
+
     const handleDrawerOpen = () => {
         console.log('drawer opened');
         setOpen(true);
@@ -95,21 +110,6 @@ const Admin = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-    useEffect(() => {
-        if (currentUser) {
-            console.log(currentUser);
-            if (currentUser.isadmin) {
-                return;
-            }
-        }
-        Swal.fire({
-            icon: 'error',
-            title: 'Not Permitted',
-            text: 'You do not have admin permission'
-        })
-        history.push('/app/login');
-    }, [])
 
     return (
         <div className="admin" style={{ height: '100vh' }}>

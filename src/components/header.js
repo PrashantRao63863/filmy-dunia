@@ -87,7 +87,7 @@ const Header = props => {
 
             return (
                 <div>
-                    <Button color="inherit" component={Link} to="/admin/dashboard">Dashboard</Button>
+                   
 
                     <Button component={Link} color="inherit" to="/admin/dashboard" onClick={handleLogout}>Logout</Button>
                 </div>
