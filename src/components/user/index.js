@@ -5,6 +5,7 @@ import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import { useRouteMatch, Switch, Route, Redirect, useHistory } from 'react-router';
 import Profile from '../profile';
 import ManageUserOrders from './manageUserOrders';
+import Checkout from './checkout';
 import { makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
@@ -106,6 +107,7 @@ const UserDashboard = () => {
                     <Route path={`${path}/profile`} component={Profile} />
                     <Route path={`${path}/manageorder`} component={ManageUserOrders} />
                     <Route path={`${path}/rents`} component={ManageRents} />
+                    <Route path={`${path}/checkout`} component={Checkout} />
                 </Switch>
             </div>
 
