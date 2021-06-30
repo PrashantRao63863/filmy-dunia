@@ -24,10 +24,7 @@ const HomeComponent = props => {
                                 <ul>
                                     <li><Link className="nav-link" to="/app/listequipments">View Equipment</Link></li>
                                     
-                                    <li><Link className="nav-link" to="/app/listcrew">View Crew Member</Link></li>
-                                    
-                                    <li><a href="#">Manage Order</a></li>
-                                    
+                                    <li><Link className="nav-link" to="/app/listcrew">View Crew Member</Link></li>   
                                 </ul>
                             </li>
                             <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
