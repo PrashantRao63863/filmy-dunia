@@ -86,7 +86,7 @@ const Profile = props => {
                     <TextField type="password" label="Password" name="password" variant="filled" className={baseClasses.input} />
 
                     <div className="text-center">
-                        <Button className="mt-5 w-100" >Submit</Button>
+                        <Button className="mt-5 w-100" color="primary" variant="contained">Submit</Button>
                     </div>
 
                 </CardContent>

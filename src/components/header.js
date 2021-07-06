@@ -84,25 +84,25 @@ const Header = props => {
         let user = userService.currentUser;
         console.log(user);
         if (user) {
-
+            const dashLink = user.isadmin ? 'admin' : 'user';
             return (
                 <div>
-                    <Button color="inherit" component={Link} to="/admin/dashboard">Dashboard</Button>
+                    <Button color="inherit" component={Link} to={"/" + dashLink + "/dashboard"}>Dashboard</Button>
 
-                    <Button component={Link} color="inherit" to="/admin/dashboard" onClick={handleLogout}>Logout</Button>
+                    <Button color="inherit" onClick={handleLogout}>Logout</Button>
                 </div>
             )
         } else {
             return (
                 <div>
-                <Link to="/home" className={classes.link}>
+                    <Link to="/home" className={classes.link}>
                         <Button color="inherit">Home</Button>
                     </Link>
                     <Link to="/app/login" className={classes.link}>
                         <Button color="inherit">Login</Button>
                     </Link>
 
-                    
+
 
                     <Link to="/app/register" className={classes.link}>
                         <Button color="inherit">Register</Button>
