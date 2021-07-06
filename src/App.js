@@ -20,7 +20,7 @@ import { OrderProvider } from './providers/orderContext';
 function App() {
 
   const stripe = loadStripe(
-    "pk_test_Vmvhpm2TASsGcgF4RcyQfkF000KwucQJR1"
+    "pk_test_51IwtOaSHbldaLzMhlMq8Gj2yMsJqonqkUOH64wiBEdZt2IjVcub1Cmb3GeTBT5rSSepeZMC2Mdb7D8pNqJSpyacs00zY2b3ngv"
   );
 
   const theme = createMuiTheme({

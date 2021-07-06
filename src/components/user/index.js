@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
 import DrawerComponent from '../drawer';
 import Header from '../header';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import { useRouteMatch, Switch, Route } from 'react-router';
+import PersonSharpIcon from '@material-ui/icons/PersonSharp';
+import { useRouteMatch, Switch, Route, Redirect, useHistory } from 'react-router';
 import Profile from '../profile';
-import Checkout from './checkout';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core';
-import Swal from 'sweetalert2';
-import { useHistory } from 'react-router-dom';
-import RentCrew from './rentCrew';
 import ManageUserOrders from './manageUserOrders';
+import Checkout from './checkout';
+import { makeStyles } from '@material-ui/core';
+import clsx from 'clsx';
 import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
 import BubbleChartRoundedIcon from '@material-ui/icons/BubbleChartRounded';
 import AttachMoneySharpIcon from '@material-ui/icons/AttachMoneySharp';
-import PersonSharpIcon from '@material-ui/icons/PersonSharp';
-
+// import Zoom from 'react-reveal/Zoom'
+import Swal from 'sweetalert2';
+import ManageRents from './manageRents';
 
 const drawerWidth = 240;
 
@@ -28,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.shortest,
         }),
         marginLeft: 60,
+        height: '100vh'
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
@@ -38,13 +37,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 const UserDashboard = () => {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const classes = useStyles();
 
-    const [currentUser, setCurrentUser] = useState({});
+    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
     const history = useHistory();
 
     const handleDrawerOpen = () => {
@@ -55,22 +53,6 @@ const UserDashboard = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-
-    useEffect(() => {
-        if (currentUser) {
-            if (currentUser) {
-                return;
-            }
-        }
-        Swal.fire({
-            icon: 'error',
-            title: 'Not Permitted',
-            text: 'You do not have admin permission'
-        })
-        history.push('/app/login');
-    }, [])
-
 
     let { path, url } = useRouteMatch();
 
@@ -85,11 +67,7 @@ const UserDashboard = () => {
             icon: <AddShoppingCartRoundedIcon />,
             link: `${url}/manageorder`
         },
-        {
-            name: "Manage Services",
-            icon: <BubbleChartRoundedIcon />,
-            link: `${url}/services`
-        },
+        
         {
             name: "Current Rents",
             icon: <AttachMoneySharpIcon />,
@@ -97,30 +75,43 @@ const UserDashboard = () => {
         },
     ]
 
+    useEffect(() => {
+        if (currentUser) {
+            return;
+        }
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Not Permitted',
+            text: 'You do not have admin permission'
+        })
+        history.push('/app/login');
+    }, [])
+
     return (
         <div>
-            <Header open={open} setOpen={setOpen} drawerWidth={drawerWidth} handleDrawerOpen={handleDrawerOpen} drawer={true} />
-            <DrawerComponent open={open} setOpen={setOpen} drawerWidth={drawerWidth} handleDrawerClose={handleDrawerClose} drawerOptions={drawerOptions} />
+            <Header open={open} drawerWidth={drawerWidth} handleDrawerOpen={handleDrawerOpen} drawer={true} />
+            <DrawerComponent
+                open={open}
+                setOpen={setOpen}
+                drawerWidth={drawerWidth}
+                handleDrawerClose={handleDrawerClose}
+                drawerOptions={drawerOptions} />
 
             <div className={clsx(classes.content, {
                 [classes.contentShift]: open,
-            })}>
+            }, 'user-layout')}>
                 <Switch>
+                    <Redirect exact path={`${path}/dashboard`} to={`${path}/profile`} />
+                    <Redirect exact path={`${path}`} to={`${path}/profile`} />
                     <Route path={`${path}/profile`} component={Profile} />
-                    <Route exact path={`${path}`}>
-                        <Profile />
-                    </Route>
-                    <Route path={`${path}/checkout`}>
-                        <Checkout />
-                    </Route>
-                    <Route path={`${path}/rentcrew`}>
-                        <RentCrew />
-                    </Route>
-                    <Route path={`${path}/manageorder`}>
-                        <ManageUserOrders />
-                    </Route>
+                    <Route path={`${path}/manageorder`} component={ManageUserOrders} />
+                    <Route path={`${path}/rents`} component={ManageRents} />
+                    <Route path={`${path}/checkout`} component={Checkout} />
                 </Switch>
             </div>
+
+
         </div>
     )
 }

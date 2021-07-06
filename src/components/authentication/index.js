@@ -6,7 +6,9 @@ import Login from './login';
 import Register from './register';
 import ListEquipments from './listEquipments';
 import EquipmentDetails from './equipmentDetails';
+import Checkout from './checkout';
 import ForgotPassword from './forgotpassword';
+import Rent from '../user/rent';
 import ListCrew from './listCrew';
 import CrewDetails from './crewDetails';
 
@@ -24,7 +26,8 @@ const AppComponent = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
+    
+    
     let { path, url } = useRouteMatch();
 
     const drawerOptions = [
@@ -47,10 +50,13 @@ const AppComponent = () => {
                     <Route path={`${path}/login`} component={Login} />
                     <Route path={`${path}/register`} component={Register} />
                     <Route path={`${path}/reset`} component={ForgotPassword} />
+
                     <Route path={`${path}/listequipments`} component={ListEquipments} />
                     <Route path={`${path}/equipmentdetails/:id`} component={EquipmentDetails} />
+                    <Route path={`${path}/checkout`} component={Checkout} />
                     <Route path={`${path}/listcrew`} component={ListCrew} />
                     <Route path={`${path}/crewdetails/:id`} component={CrewDetails} />
+                    <Route path={`${path}/rent`} component={Rent} />
                 </Switch>
             </div>
         </div>
