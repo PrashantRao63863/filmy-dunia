@@ -90,6 +90,12 @@ const Header = props => {
                    
 
                     <Button component={Link} color="inherit" to="/admin/dashboard" onClick={handleLogout}>Logout</Button>
+                    <Link to="/app/listcrew" clasName={classes.link}>
+                       <Button class="text-white bg-dark">View Crew Member</Button></Link>
+                       
+                       <Link to="/app/listequipments" clasName={classes.link}>
+                       <Button class="text-white bg-dark">View Equipments</Button></Link>
+                
                 </div>
             )
         } else {
@@ -107,7 +113,14 @@ const Header = props => {
                     <Link to="/app/register" className={classes.link}>
                         <Button color="inherit">Register</Button>
                     </Link>
+                    <Link to="/app/listcrew" clasName={classes.link}>
+                       <Button color="inherit">View Crew Member</Button></Link>
+
+                       <Link to="/app/listequipments" clasName={classes.link}>
+                       <Button color="inherit">View Equipments</Button></Link>
+
                 </div>
+                
             )
         }
 
