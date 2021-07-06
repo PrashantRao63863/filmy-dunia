@@ -114,10 +114,10 @@ const Header = props => {
                         <Button color="inherit">Register</Button>
                     </Link>
                     <Link to="/app/listcrew" clasName={classes.link}>
-                       <Button color="inherit">View Crew Member</Button></Link>
+                       <Button class="text-white bg-dark">View Crew Member</Button></Link>
 
                        <Link to="/app/listequipments" clasName={classes.link}>
-                       <Button color="inherit">View Equipments</Button></Link>
+                       <Button class="text-white bg-dark">View Equipments</Button></Link>
 
                 </div>
                 
